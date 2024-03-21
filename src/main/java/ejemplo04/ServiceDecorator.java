@@ -17,6 +17,8 @@ public abstract class ServiceDecorator implements ServiciosClientes {
 
 	@Inject
 	@Delegate
+	//Con esta anotación indicamos al contenedor que este objeto es el objeto que esta 
+	//siendo decorado.
 	private ServiciosClientes servicioADecorar;
 	
 	//Método que nos interesa decorar.
