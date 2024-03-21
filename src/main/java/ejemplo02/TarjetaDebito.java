@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Default;
 
 @ApplicationScoped
+//Esta implementación está Calificada como Debito
 @Debito
 public class TarjetaDebito implements MedioDePago {
 

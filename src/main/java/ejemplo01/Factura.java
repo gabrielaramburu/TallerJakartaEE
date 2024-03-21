@@ -2,7 +2,7 @@ package ejemplo01;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-
+//Esta anotación le dice a CDI que solo existirá una instancia de Factura
 @ApplicationScoped
 public class Factura {
 	

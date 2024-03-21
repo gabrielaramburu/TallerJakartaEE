@@ -9,11 +9,14 @@ import jakarta.enterprise.inject.Any;
 import jakarta.enterprise.inject.Instance;
 import jakarta.inject.Inject;
 
+//estas anotaciones me permiten utilizar el servicio (Jakarta CDI) sin prender el servidor
 @EnableAutoWeld
 @AddPackages(TarjetaDebito.class)
 
 class Ejemplo01Test {
 
+	//Esta anotación hace que CDI cree injecte una instancia de Factura
+	//Tambien crea las instancias (resuelve las dependencias) que Factura necesite
 	@Inject
 	private Factura factura;
 	
@@ -22,6 +25,8 @@ class Ejemplo01Test {
 	@Test
 	void test() {
 		factura.pagar(100.0);
+		//obervar la salida: el pago se realiza con tarjeta de Debito, única implementación
+		//de la interface
 	}
 
 }
