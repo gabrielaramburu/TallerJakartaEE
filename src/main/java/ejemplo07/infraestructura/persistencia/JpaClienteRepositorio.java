@@ -11,6 +11,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class JpaClienteRepositorio implements ClienteRepositorio {
 
+	//en la vida real esto será JPA
 	private List<Cliente> clientes;
 	
 	@PostConstruct
