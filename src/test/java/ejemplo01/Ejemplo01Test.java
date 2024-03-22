@@ -24,7 +24,7 @@ class Ejemplo01Test {
 	@DisplayName ("Primer ejemplo de DI")
 	@Test
 	void test() {
-		factura.pagar(100.0);
+		factura.pagar(105.0);
 		//obervar la salida: el pago se realiza con tarjeta de Debito, única implementación
 		//de la interface
 	}

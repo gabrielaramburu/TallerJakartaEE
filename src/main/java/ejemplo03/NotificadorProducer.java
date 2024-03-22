@@ -7,7 +7,7 @@ import jakarta.inject.Inject;
 @ApplicationScoped
 public class NotificadorProducer {
 	//esto tiene más sentido remplazarlo por una variable de ambiente
-	private final static boolean  AMBIENTE_TESTING = true;
+	private final static boolean  AMBIENTE_TESTING = false;
 
 	//El contenedor siempre que alguien quiera injectar una NotificadorPago
 	//va a llamar a este método
@@ -20,7 +20,6 @@ public class NotificadorProducer {
 			notificador = new NotificadorProduccionMail();
 		}
 		
-			
 		return notificador;
 	}
 }

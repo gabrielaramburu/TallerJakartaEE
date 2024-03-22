@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 import jakarta.inject.Qualifier;
 
 @Qualifier
+//Estas anotaciones estan relacionadas a como crear anotaciones en Java
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER})
 public @interface Debito {
