@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.eclipse</groupId>
+	<artifactId>02-JakartaEE-RESTful</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>02-JakartaEE-RESTful</name>
+	<description>
+		Ejemplo de uso de API RESTful
+	</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.report.sourceEncoding>UTF-8</project.report.sourceEncoding>
+		<maven.compiler.release>17</maven.compiler.release>
+		<jakartaee-api.version>10.0.0</jakartaee-api.version>
+		<compiler-plugin.version>3.11.0</compiler-plugin.version>
+		<war-plugin.version>3.3.2</war-plugin.version>
+
+		<version.wildfly.maven.plugin>4.2.1.Final</version.wildfly.maven.plugin>
+		<version.wildfly.bom>31.0.0.Final</version.wildfly.bom>
+
+		<junit.version>5.8.2</junit.version>
+		<mockito.verson>4.5.1</mockito.verson>
+		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+		
+		<maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<version>${jakartaee-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.verson}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito.verson}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.24.2</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- implementacion cliente rest 
+		//TODO tal vez no sea necesario con la version completa de wildly-->
+		<dependency>
+			<groupId>io.helidon.jersey</groupId>
+		    <artifactId>helidon-jersey-client</artifactId>
+		    <version>3.2.6</version>
+		    <scope>provided</scope>
+ 		</dependency>
+ 		
+ 		<!-- implementacion json parser 
+ 		//TODO tal vez no sea necesario con la version completa de wildly-->
+ 		<dependency>
+		    <groupId>org.eclipse.parsson</groupId>
+		    <artifactId>jakarta.json</artifactId>
+		    <version>1.1.3</version>
+		</dependency>
+		
+		<!-- okHttpCliente -->
+		<dependency>
+		    <groupId>com.squareup.okhttp3</groupId>
+		    <artifactId>okhttp</artifactId>
+		    <version>4.12.0</version>
+		</dependency>
+	</dependencies>
+	
+	
+
+	<build>
+		<finalName>02_jakartaRESTful_ejemplo</finalName>
+		<plugins>
+			<!-- Este plugin nos ayuda a automatizar tareas de deploy y
+			aprovisionamiento
+			 Además nos permite lanzar el servidor y con la capacidad de hoydeploy (montorea
+			por cambios en los fuentes)  -->
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>${version.wildfly.maven.plugin}</version>
+				<configuration>
+					<feature-packs>
+						<feature-pack>
+							<location>
+								org.wildfly:wildfly-galleon-pack:${version.wildfly.bom}</location>
+						</feature-pack>
+					</feature-packs>
+					<layers>
+						<!-- layers may be used to customize the server to
+						provision-->
+						<layer>cloud-server</layer>
+					</layers>
+					<commands>
+			            <!-- para levantar en modo debug -->
+			            <command>/subsystem=logging/root-logger=ROOT:write-attribute(name="level", value="DEBUG") </command>
+			            <command>/subsystem=logging/console-handler=CONSOLE:write-attribute(name="level", value="DEBUG")</command>
+			            <command>/subsystem=logging/file-handler=debug:add(level=DEBUG,autoflush=true,file={"relative-to"=>"jboss.server.log.dir", "path"=>"debug.log"})</command>
+			            <command>/subsystem=logging/logger=org.jboss.as:add(level=DEBUG,handlers=[debug])</command>
+			           
+      				  </commands>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>package</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler-plugin.version}</version>
+				 <configuration>
+                    <target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                </configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${war-plugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
