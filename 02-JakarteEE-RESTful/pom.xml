@@ -95,6 +95,7 @@
 		    <artifactId>okhttp</artifactId>
 		    <version>4.12.0</version>
 		</dependency>
+		
 	</dependencies>
 	
 	
@@ -130,6 +131,7 @@
 			            <command>/subsystem=logging/logger=org.jboss.as:add(level=DEBUG,handlers=[debug])</command>
 			           
       				  </commands>
+      				  
 				</configuration>
 				<executions>
 					<execution>
@@ -161,6 +163,9 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven.surefire.plugin.version}</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

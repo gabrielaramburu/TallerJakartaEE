@@ -14,7 +14,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-@Disabled
+//@Disabled
 public class ConsumidorAPI_02_okHttpClientTest {
 
 	@Test

@@ -24,7 +24,7 @@ import jakarta.ws.rs.core.MediaType;
  * 
  * ver archivo pom
  */
-@Disabled
+//@Disabled
 class ConsumidorAPI_01_JakartaClientTest {
 
 	@Test
@@ -68,7 +68,7 @@ class ConsumidorAPI_01_JakartaClientTest {
 		String respuesta = httpClient
 			.target("http://localhost:8080/02_jakartaRESTful_ejemplo/api/clientes")
 			.path("getCliente")
-			.queryParam("id", "4")
+			.queryParam("id", "2")
 			.request(MediaType.APPLICATION_JSON)
 			.get(String.class);
 		

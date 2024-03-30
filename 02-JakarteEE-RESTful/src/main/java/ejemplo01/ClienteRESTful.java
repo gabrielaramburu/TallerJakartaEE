@@ -29,7 +29,7 @@ import jakarta.ws.rs.core.MediaType;
  */
 
 @ApplicationScoped
-@Path("/clientes")						
+@Path("/clientes")
 public class ClienteRESTful {
 	
 	@Inject
@@ -42,6 +42,7 @@ public class ClienteRESTful {
 	 */
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
+	
 	public List<Cliente> obtenerClientes() {
 		System.out.println("Retornando todos los clientes");
 		return clienteService.obternerClientes();
@@ -139,8 +140,6 @@ public class ClienteRESTful {
 		clienteService.actualizarCliente(cli);
 	}
 	
-	//probar WS
-	//ver gRPC si es posible
-	
+
 	
 }
