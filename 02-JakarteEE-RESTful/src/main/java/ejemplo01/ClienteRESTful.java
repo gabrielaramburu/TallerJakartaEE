@@ -100,7 +100,7 @@ public class ClienteRESTful {
 	/**
 	 * curl -X POST http://localhost:8080/02_jakartaRESTful_ejemplo/api/clientes 
 	 * -H "Content-Type: application/json" 
-	 * -d '{"id":3,"nombre":"Marta"}
+	 * -d '{"id":3,"nombre":"Marta"}'
 	 * 
 	 * Observar como la información enviada en el body del mensaje se parsea automáticamente a un 
 	 * objeto Cliente.
