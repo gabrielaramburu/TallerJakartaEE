@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>tallerJava</groupId>
+	<artifactId>02-JakartaEE-RESTful-Swagger</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>02-JakartaEE-RESTful-Swagger</name>
+	<description>
+		Ejemplo de uso Swagger
+	</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.report.sourceEncoding>UTF-8</project.report.sourceEncoding>
+		<maven.compiler.release>17</maven.compiler.release>
+		<jakartaee-api.version>10.0.0</jakartaee-api.version>
+		<compiler-plugin.version>3.11.0</compiler-plugin.version>
+		<war-plugin.version>3.3.2</war-plugin.version>
+
+		<version.wildfly.maven.plugin>4.2.1.Final</version.wildfly.maven.plugin>
+		<version.wildfly.bom>31.0.0.Final</version.wildfly.bom>
+
+		<junit.version>5.8.2</junit.version>
+		<mockito.verson>4.5.1</mockito.verson>
+		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+		
+		<maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<version>${jakartaee-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-jaxrs2-jakarta</artifactId>
+			<version>2.2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-jaxrs2-servlet-initializer-v2-jakarta</artifactId>
+			<version>2.2.7</version>
+		</dependency>
+		
+
+	</dependencies>
+	
+	
+
+	<build>
+		<finalName>02_jakartaRESTful_swagger</finalName>
+		<plugins>
+			<!-- Este plugin nos ayuda a automatizar tareas de deploy y
+			aprovisionamiento
+			 Además nos permite lanzar el servidor y con la capacidad de hoydeploy (montorea
+			por cambios en los fuentes)  -->
+			<plugin>
+				
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>${version.wildfly.maven.plugin}</version>
+				<configuration>
+					
+					<feature-packs>
+						<feature-pack>
+							<location>
+								org.wildfly:wildfly-galleon-pack:${version.wildfly.bom}</location>
+						</feature-pack>
+					</feature-packs>
+					<layers>
+						<!-- http://docs.wildfly.org/16/Admin_Guide.html#defined-galleon-layers -->
+						<layer>cloud-server</layer>
+						
+					</layers>
+					<!-- para levantar en modo debug 
+					<commands>
+			          
+			            <command>/subsystem=logging/root-logger=ROOT:write-attribute(name="level", value="DEBUG") </command>
+			            <command>/subsystem=logging/console-handler=CONSOLE:write-attribute(name="level", value="DEBUG")</command>
+			            <command>/subsystem=logging/file-handler=debug:add(level=DEBUG,autoflush=true,file={"relative-to"=>"jboss.server.log.dir", "path"=>"debug.log"})</command>
+			            <command>/subsystem=logging/logger=org.jboss.as:add(level=DEBUG,handlers=[debug])</command>
+			           
+      				  </commands>
+      				--> 
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>package</goal>
+						</goals>
+					</execution>
+				</executions>
+				
+				
+				
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler-plugin.version}</version>
+				 <configuration>
+                    <target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                </configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${war-plugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
