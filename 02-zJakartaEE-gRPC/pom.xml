@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.eclipse</groupId>
+	<artifactId>021-JakartaEE-gRPC</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>021-JakartaEE-gRPC</name>
+	<description>
+		Ejemplo de gRPC
+	</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.report.sourceEncoding>UTF-8</project.report.sourceEncoding>
+		<maven.compiler.release>17</maven.compiler.release>
+		<jakartaee-api.version>10.0.0</jakartaee-api.version>
+		<compiler-plugin.version>3.11.0</compiler-plugin.version>
+		<war-plugin.version>3.3.2</war-plugin.version>
+
+
+		<version.wildfly.maven.plugin>4.2.1.Final</version.wildfly.maven.plugin>
+		<version.wildfly.bom>31.0.0.Final</version.wildfly.bom>
+		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+
+		<version.wildfly.grpc>0.1.3.Final</version.wildfly.grpc>
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<version>${jakartaee-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<finalName>021-JakartaEE-XML</finalName>
+		<plugins>
+			<!-- Nos permite lanzar el servidor y con la capacidad de hoydeploy
+			(montorea
+			por cambios en los fuentes)
+			https://docs.wildfly.org/wildfly-maven-plugin/releases/4.2/provision-example.html
+			
+			Esta opción delploya un servidor wildfly completo, a diferencia de la utilizada
+			en otros ejemplos que solo provisiona una versión reducida del servidor
+			
+			-->
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>${version.wildfly.maven.plugin}</version>
+
+				<configuration>
+					<feature-packs>
+						<feature-pack>
+
+							<groupId>org.wildfly</groupId>
+							<artifactId>wildfly-galleon-pack</artifactId>
+							<version>${version.wildfly.bom}</version>
+							<!--
+								org.wildfly:wildfly-galleon-pack:${version.wildfly.bom}
+								lo mismo pero con otra sintaxis
+								-->
+
+
+						</feature-pack>
+						<feature-pack>
+
+							<groupId>org.wildfly.extras.grpc</groupId>
+							<artifactId>wildfly-grpc-feature-pack</artifactId>
+							<version>${version.wildfly.grpc}</version>
+
+
+						</feature-pack>
+					</feature-packs>
+
+					<layers>
+						<!-- Capas es un concepto relacionado al plugin
+							galleon el cual tiene como principal tarea
+							provisionar un servidor Wildfly. Dicho servidor se compone de módulos, cada
+							módulo implementa alguna funcionalidad
+							o servicio particular, si nuestra aplicación solo usará un subconjunto de todos
+							los módulos disponibles,
+							es preferible solo intalar los módulos que se necesitan.
+							Agrupar modulos más usados y etiquetar dicha agrupación es el objetivo de las
+							layers.
+							Revisar la documentación para ver las capas que existen -->
+						<layer>core-server</layer>
+						<layer>web-server</layer>
+						<layer>grpc</layer>
+					</layers>
+					
+					<log-provisioning-time>${galleon.log.time}</log-provisioning-time>
+					   
+				</configuration>
+				
+			
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler-plugin.version}</version>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${war-plugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+			<!-- permite la ejecución de test unitarios desde maven  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+			</plugin>
+
+
+		</plugins>
+	</build>
+</project>
+
+	

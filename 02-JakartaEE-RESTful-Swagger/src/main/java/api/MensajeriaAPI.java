@@ -12,7 +12,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@Tag(name="dfdfdf")
+@Tag(name="Esta página describe la API del servicio creado")
 @ApplicationScoped
 @Path("/mensajes")
 public class MensajeriaAPI {

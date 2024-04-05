@@ -42,7 +42,6 @@ public class ClienteRESTful {
 	 */
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	
 	public List<Cliente> obtenerClientes() {
 		System.out.println("Retornando todos los clientes");
 		return clienteService.obternerClientes();
@@ -132,7 +131,6 @@ public class ClienteRESTful {
 	 * @param cli
 	 */
 	@PUT 
-	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public void actualizarCliente(Cliente cli) {
 		System.out.println("Invocando actualizar cliente: " + cli);

@@ -1,0 +1,123 @@
+2024-03-30 21:39:32,813 INFO  [org.jboss.modules] (main) JBoss Modules version 2.1.2.Final
+2024-03-30 21:39:33,344 INFO  [org.jboss.msc] (main) JBoss MSC version 1.5.2.Final
+2024-03-30 21:39:33,351 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2024-03-30 21:39:33,455 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 31.0.0.Final (WildFly Core 23.0.1.Final) starting
+2024-03-30 21:39:33,456 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	[Standalone] = 
+	file.encoding = UTF-8
+	file.separator = /
+	java.awt.headless = true
+	java.class.path = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/jboss-modules.jar
+	java.class.version = 61.0
+	java.home = /home/gabriel/.sdkman/candidates/java/17.0.10-tem
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 17.0.10+7
+	java.security.manager = allow
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 17
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Eclipse Adoptium
+	java.vendor.url = https://adoptium.net/
+	java.vendor.url.bug = https://github.com/adoptium/adoptium-support/issues
+	java.vendor.version = Temurin-17.0.10+7
+	java.version = 17.0.10
+	java.version.date = 2024-01-16
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 17
+	java.vm.vendor = Eclipse Adoptium
+	java.vm.version = 17.0.10+7
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.home.dir = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server
+	jboss.host.name = gabriel-latitude-7480
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = gabriel-latitude-7480
+	jboss.qualified.host.name = gabriel-latitude-7480
+	jboss.server.base.dir = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone
+	jboss.server.config.dir = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/configuration
+	jboss.server.data.dir = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/data
+	jboss.server.log.dir = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/log
+	jboss.server.name = gabriel-latitude-7480
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/configuration/logging.properties
+	module.path = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/modules
+	native.encoding = UTF-8
+	org.jboss.boot.log.file = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/log/server.log
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Linux
+	os.version = 6.5.0-26-generic
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /home/gabriel/.sdkman/candidates/java/17.0.10-tem/lib
+	sun.cpu.endian = little
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/jboss-modules.jar -mp /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/modules org.jboss.as.standalone
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.stderr.encoding = UTF-8
+	sun.stdout.encoding = UTF-8
+	user.country = ES
+	user.dir = /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC
+	user.home = /home/gabriel
+	user.language = es
+	user.name = gabriel
+	user.timezone = America/Montevideo
+2024-03-30 21:39:33,457 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: -D[Standalone] -Xms64m -Xmx512m -Djava.net.preferIPv4Stack=true -Djava.awt.headless=true -Djboss.modules.system.pkgs=org.jboss.byteman --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-modules=java.se --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-exports=jdk.naming.dns/com.sun.jndi.dns=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED --add-modules=java.se -Djava.security.manager=allow -Djboss.home.dir=/home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server -Djboss.server.base.dir=/home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone -Djboss.server.log.dir=/home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/log -Djboss.server.config.dir=/home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/configuration -Dorg.jboss.boot.log.file=/home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/log/server.log -Dlogging.configuration=file:/home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/configuration/logging.properties 
+2024-03-30 21:39:34,092 INFO  [org.wildfly.security] (ServerService Thread Pool -- 8) ELY00001: WildFly Elytron version 2.2.3.Final
+2024-03-30 21:39:34,427 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2024-03-30 21:39:34,444 INFO  [org.xnio] (MSC service thread 1-2) XNIO version 3.8.12.Final
+2024-03-30 21:39:34,456 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.8.12.Final
+2024-03-30 21:39:34,507 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 26) WFLYNAM0001: Activating Naming Subsystem
+2024-03-30 21:39:34,525 INFO  [org.jboss.as.naming] (MSC service thread 1-1) WFLYNAM0003: Starting Naming Service
+2024-03-30 21:39:34,550 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 24) WFLYIO001: Worker 'default' has auto-configured to 8 IO threads with 64 max task threads based on your 4 available processors
+2024-03-30 21:39:34,564 INFO  [org.jboss.remoting] (MSC service thread 1-8) JBoss Remoting version 5.0.27.Final
+2024-03-30 21:39:34,642 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0003: Undertow 2.3.10.Final starting
+2024-03-30 21:39:34,701 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-5) WFLYELY00023: KeyStore file '/home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/configuration/application.keystore' does not exist. Used blank.
+2024-03-30 21:39:34,716 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-8) WFLYELY01084: KeyStore /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/configuration/application.keystore not found, it will be auto-generated on first use with a self-signed certificate for host localhost
+2024-03-30 21:39:34,716 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0012: Started server default-server.
+2024-03-30 21:39:34,723 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) Queuing requests.
+2024-03-30 21:39:34,728 WARN  [org.jboss.as.domain.http.api.undertow] (MSC service thread 1-6) WFLYDMHTTP0003: Unable to load console module for slot main, disabling console
+2024-03-30 21:39:34,736 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0018: Host default-host starting
+2024-03-30 21:39:34,765 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2024-03-30 21:39:34,829 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-1) WFLYDS0013: Started FileSystemDeploymentService for directory /home/gabriel/workspace/TallerJava/fuentes/02-zJakartaEE-gRPC/target/server/standalone/deployments
+2024-03-30 21:39:35,069 INFO  [org.wildfly.extension.grpc] (ServerService Thread Pool -- 32) WFLYGRPC0001: gRPC server listening on localhost:9555
+2024-03-30 21:39:35,165 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2024-03-30 21:39:35,170 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2024-03-30 21:39:35,171 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0054: Admin console is not enabled
+2024-03-30 21:39:35,171 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 31.0.0.Final (WildFly Core 23.0.1.Final) started in 2664ms - Started 121 of 126 services (28 services are lazy, passive or on-demand) - Server configuration file in use: standalone.xml
+2024-03-30 21:39:36,415 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "021-JakartaEE-XML.war" (runtime-name: "021-JakartaEE-XML.war")
+2024-03-30 21:39:36,987 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 33) WFLYUT0021: Registered web context: '/021-JakartaEE-XML' for server 'default-server'
+2024-03-30 21:39:37,018 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "021-JakartaEE-XML.war" (runtime-name : "021-JakartaEE-XML.war")
+2024-03-30 21:40:45,692 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 33) WFLYUT0022: Unregistered web context: '/021-JakartaEE-XML' from server 'default-server'
+2024-03-30 21:40:45,737 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment 021-JakartaEE-XML.war (runtime-name: 021-JakartaEE-XML.war) in 48ms
+2024-03-30 21:40:45,747 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "021-JakartaEE-XML.war" (runtime-name: "021-JakartaEE-XML.war")
+2024-03-30 21:40:46,052 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 36) WFLYUT0021: Registered web context: '/021-JakartaEE-XML' for server 'default-server'
+2024-03-30 21:40:46,072 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0013: Redeployed "021-JakartaEE-XML.war"
+2024-03-30 21:40:46,140 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 36) WFLYUT0022: Unregistered web context: '/021-JakartaEE-XML' from server 'default-server'
+2024-03-30 21:40:46,165 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment 021-JakartaEE-XML.war (runtime-name: 021-JakartaEE-XML.war) in 27ms
+2024-03-30 21:40:46,167 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "021-JakartaEE-XML.war" (runtime-name: "021-JakartaEE-XML.war")
+2024-03-30 21:40:46,310 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 33) WFLYUT0021: Registered web context: '/021-JakartaEE-XML' for server 'default-server'
+2024-03-30 21:40:46,332 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0013: Redeployed "021-JakartaEE-XML.war"
+2024-03-30 22:05:08,052 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2024-03-30 22:05:08,058 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2024-03-30 22:05:08,063 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 33) WFLYUT0022: Unregistered web context: '/021-JakartaEE-XML' from server 'default-server'
+2024-03-30 22:05:08,074 INFO  [org.wildfly.extension.grpc] (MSC service thread 1-7) WFLYGRPC0002: gRPC service stopping
+2024-03-30 22:05:08,079 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0008: Undertow HTTP listener default suspending
+2024-03-30 22:05:08,080 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2024-03-30 22:05:08,091 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0019: Host default-host stopping
+2024-03-30 22:05:08,093 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0004: Undertow 2.3.10.Final stopping
+2024-03-30 22:05:08,099 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0028: Stopped deployment 021-JakartaEE-XML.war (runtime-name: 021-JakartaEE-XML.war) in 32ms
+2024-03-30 22:05:08,104 INFO  [org.jboss.as] (MSC service thread 1-3) WFLYSRV0050: WildFly Full 31.0.0.Final (WildFly Core 23.0.1.Final) stopped in 37ms

@@ -14,6 +14,9 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
+/**
+ * Ejemplo de API con estilo rpc
+ */
 @ApplicationScoped
 @Path("/clientes")
 public class ClienteRPC {

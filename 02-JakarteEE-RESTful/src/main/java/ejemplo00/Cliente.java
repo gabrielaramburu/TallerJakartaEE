@@ -3,6 +3,7 @@ package ejemplo00;
 
 public class Cliente {
 	private int id;
+	
 	private String nombre;
 	
 	public Cliente() {

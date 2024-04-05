@@ -42,7 +42,7 @@ class ConsumidorAPI_01_JakartaClientTest {
 	}
 	
 	@Test
-	@DisplayName("Pasando parámetros http ")
+	@DisplayName("Pasando parámetros http, invocando API con estilo rpc ")
 	void pasajeParametrosHttp() {
 		
 		Client cliente = ClientBuilder.newClient(); 
