@@ -1,0 +1,43 @@
+<web-app version="6.0"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+
+	<!--  restricción de seguridad #1 -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Mensajes autenticados</web-resource-name>
+			<url-pattern>/mensajes/gerente/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>gerente</role-name> <!--  solo los usuarios con el rol gerente podrán acceder a la url -->
+		</auth-constraint>
+	</security-constraint>
+	
+	<!--  restricción de seguridad #2 -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Mensajes autenticados cifrados</web-resource-name>
+			<url-pattern>/mensajes/gerente/enviarMensajeSeguro</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>gerente</role-name> <!--  solo los usuarios con el rol gerente podrán acceder a la url -->
+		</auth-constraint>
+		
+		<!-- la información viaja cifrada ssl utilizando un certificado genreado por el servidor 
+		solo no apto para uso en producción -->
+		 <user-data-constraint>
+        	<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+   		 </user-data-constraint>
+	</security-constraint>
+	
+
+	<login-config>
+		<auth-method>BASIC</auth-method> <!-- se abre un formulario en el browser -->
+		<realm-name>ApplicationRealm</realm-name>
+	</login-config>
+
+	<security-role>
+		<role-name>gerente</role-name> <!--  este rol tiene que estar definido en el servidor -->
+	</security-role>
+</web-app>
