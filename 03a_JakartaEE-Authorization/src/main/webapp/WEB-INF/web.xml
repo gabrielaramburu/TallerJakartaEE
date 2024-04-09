@@ -33,7 +33,9 @@
 	
 
 	<login-config>
-		<auth-method>BASIC</auth-method> <!-- se abre un formulario en el browser -->
+		<auth-method>BASIC</auth-method> <!-- se abre un formulario en el browser
+		tener en cuenta de que hay otros tipos de autenticación, por ejemplo se 
+		puede indicaar que se abra un formulario de login específico  -->
 		<realm-name>ApplicationRealm</realm-name>
 	</login-config>
 
