@@ -21,6 +21,8 @@
 		<compiler-plugin.version>3.11.0</compiler-plugin.version>
 		<war-plugin.version>3.4.0</war-plugin.version>
 		<wildfly-plugin.version>4.2.1.Final</wildfly-plugin.version>
+		<version.wildfly.maven.plugin>4.2.1.Final</version.wildfly.maven.plugin>
+		<version.wildfly.bom>31.0.0.Final</version.wildfly.bom>
 	</properties>
 
 	<dependencies>
@@ -30,6 +32,25 @@
 			<version>${jakartaee-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		
+		
+		<dependency>
+            <groupId>jakarta.security.enterprise</groupId>
+            <artifactId>jakarta.security.enterprise-api</artifactId>
+            <scope>provided</scope>
+            <version>3.0.0</version>
+        </dependency>
+
+		<!--
+		<dependency>
+            <groupId>org.wildfly.security</groupId>
+            <artifactId>wildfly-elytron</artifactId>
+            <version>1.1.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+        --> 
+
 	</dependencies>
 
 	<build>
@@ -49,6 +70,7 @@
 			</plugin>
 
 			<!-- Execute 'mvn clean package wildfly:dev' to run the application. -->
+
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
@@ -56,8 +78,31 @@
 				<configuration>
 					<version>${wildfly.version}</version>
 					<server-config>standalone-full.xml</server-config>
+				
+					<!--
+                    <commands>
+						<command>/subsystem=security:write-attribute(name=initialize-jacc, value=false)</command> 
+						<command>/subsystem=elytron/policy=jacc:add(jacc-policy={})</command>
+						<command>reload</command> 
+
+						<command>/subsystem=undertow/application-security-domain=other:add(security-domain=ApplicationDomain, integrated-jaspi=false)</command>
+
+
+
+						
+                        <command>/subsystem=undertow/application-security-domain=other:write-attribute(name=integrated-jaspi, value=false)</command>
+                        
+                        
+                        <command>reload</command>
+                        
+                        
+                    </commands>
+                    -->
+               		
 				</configuration>
-			</plugin>
+			</plugin> 
+			
+			
 		</plugins>
 	</build>
 </project>

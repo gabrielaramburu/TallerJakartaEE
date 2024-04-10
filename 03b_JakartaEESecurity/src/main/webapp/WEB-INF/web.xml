@@ -2,7 +2,22 @@
 	xmlns="https://jakarta.ee/xml/ns/jakartaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+	
+	
+	<servlet>
+		<servlet-name>jakarta.ws.rs.core.Application</servlet-name>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jakarta.ws.rs.core.Application</servlet-name>
+		<url-pattern>/seguro/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Impresindible para que reseasy (implementación de Jakarta REST) entienda
+	las anotaciones de Jakarta Security -->
+	  <context-param>
+	    <param-name>resteasy.role.based.security</param-name>
+	    <param-value>true</param-value>
+	  </context-param>
+
+	
 </web-app>

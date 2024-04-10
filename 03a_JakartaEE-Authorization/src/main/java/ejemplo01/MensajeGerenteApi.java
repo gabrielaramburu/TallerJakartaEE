@@ -39,6 +39,8 @@ public class MensajeGerenteApi {
 	//Nota 2:notar que el puerto de comunicación es 8443
 	//Nota 3:los certificados del servidor (.pem) los obtuvimos con la herramienta openssl
 	
+	//openssl s_client -showcerts -connect localhost:8443 </dev/null | sed -n -e '/-.BEGIN/,/-.END/ p' > certificadoPrueba.pem
+	//genera archivo pen con los certificados del servidor
 	@GET
 	@Path("/enviarMensajeSeguro")
 	@RolesAllowed("gerente") //solo los usuarios que pertenezcan a este rol podrán 

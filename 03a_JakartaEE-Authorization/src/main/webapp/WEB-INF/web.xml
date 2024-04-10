@@ -42,4 +42,5 @@
 	<security-role>
 		<role-name>gerente</role-name> <!--  este rol tiene que estar definido en el servidor -->
 	</security-role>
+	
 </web-app>
