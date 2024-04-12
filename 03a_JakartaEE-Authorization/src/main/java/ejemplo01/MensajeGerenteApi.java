@@ -25,7 +25,6 @@ public class MensajeGerenteApi {
 	
 	@GET
 	@Path("/enviarMensaje")
-	@RolesAllowed("gerente") //solo los usuarios que pertenezcan a este rol podrán 
 	//invocar este método
 	@Produces({ MediaType.APPLICATION_JSON })
 	public String enviarMensajeComoGerente(@QueryParam("mensaje") String mensaje) {
@@ -43,12 +42,12 @@ public class MensajeGerenteApi {
 	//genera archivo pen con los certificados del servidor
 	@GET
 	@Path("/enviarMensajeSeguro")
-	@RolesAllowed("gerente") //solo los usuarios que pertenezcan a este rol podrán 
 	//invocar este método
 	@Produces({ MediaType.APPLICATION_JSON })
 	public String enviarMensajeSeguro(@QueryParam("mensaje") String mensaje) {
 		return servicio.enviarMensajeComoGerente(mensaje);
 	}
+	
 	
 
 }
