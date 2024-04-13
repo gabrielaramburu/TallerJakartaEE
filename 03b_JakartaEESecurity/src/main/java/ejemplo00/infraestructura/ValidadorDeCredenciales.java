@@ -1,4 +1,4 @@
-package ejemplo01;
+package ejemplo00.infraestructura;
 
 import java.util.ArrayList;
 import java.util.Arrays;

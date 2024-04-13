@@ -1,0 +1,2 @@
+# JMeter generated Authorization file
+http://localhost:8080/03b_JakartaEESecurity/seguro/api/enviarMensaje	usr1	usr1pass			BASIC

@@ -21,6 +21,13 @@ public class Mensaje {
 	}
 	
 	public String mostrar() {
+		try {
+			//simulo que hago algo algún trabajo
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "El contenido del mensaje es: " + this.mensaje + "\n";
 	}
 }

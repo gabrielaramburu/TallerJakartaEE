@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>tallerJava</groupId>
@@ -33,23 +35,20 @@
 			<scope>provided</scope>
 		</dependency>
 
-		
-		
-		<dependency>
-            <groupId>jakarta.security.enterprise</groupId>
-            <artifactId>jakarta.security.enterprise-api</artifactId>
-            <scope>provided</scope>
-            <version>3.0.0</version>
-        </dependency>
 
-		<!--
 		<dependency>
-            <groupId>org.wildfly.security</groupId>
-            <artifactId>wildfly-elytron</artifactId>
-            <version>1.1.0.Final</version>
-            <scope>provided</scope>
-        </dependency>
-        --> 
+			<groupId>jakarta.security.enterprise</groupId>
+			<artifactId>jakarta.security.enterprise-api</artifactId>
+			<scope>provided</scope>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!-- token bucket implemntacion -->
+		<dependency>
+			<groupId>com.bucket4j</groupId>
+			<artifactId>bucket4j-core</artifactId>
+			<version>8.10.1</version>
+		</dependency>
 
 	</dependencies>
 
@@ -78,31 +77,43 @@
 				<configuration>
 					<version>${wildfly.version}</version>
 					<server-config>standalone-full.xml</server-config>
-				
+
 					<!--
+					<command>/subsystem=undertow/application-security-domain=other:add(security-domain=ApplicationDomain,
+					integrated-jaspi=false)</command>
+					-->
                     <commands>
-						<command>/subsystem=security:write-attribute(name=initialize-jacc, value=false)</command> 
-						<command>/subsystem=elytron/policy=jacc:add(jacc-policy={})</command>
-						<command>reload</command> 
-
-						<command>/subsystem=undertow/application-security-domain=other:add(security-domain=ApplicationDomain, integrated-jaspi=false)</command>
-
-
-
+					
+						<!-- Un caso donde le servidor no cumple con la especificación :( 
+						y hay que tocar configuración particular para usar Jakarta Security 
+						Es de esperar que esto lo arreglen en futuras versiones del servidor
 						
-                        <command>/subsystem=undertow/application-security-domain=other:write-attribute(name=integrated-jaspi, value=false)</command>
-                        
-                        
+						https://github.com/wildfly/quickstart/blob/main/ee-security/README.adoc -->
+						<command>/subsystem=undertow/application-security-domain=other:write-attribute(name=integrated-jaspi,value=false)</command>   
                         <command>reload</command>
-                        
-                        
+                       
                     </commands>
-                    -->
-               		
-				</configuration>
-			</plugin> 
-			
-			
+                   
+                    
+                  	<!-- agrego usuario para poder acceder a la consola de admin. al momento de deployar del servidor -->
+                    <add-user>
+                        <users>
+                            
+                            <user>
+                                <username>root</username>
+                                <password>rootpass1234</password>
+                 
+                                <application-user>false</application-user>
+                            </user>
+                            
+                        </users>
+                    </add-user>
+                </configuration>
+
+				
+			</plugin>
+
+
 		</plugins>
 	</build>
 </project>
