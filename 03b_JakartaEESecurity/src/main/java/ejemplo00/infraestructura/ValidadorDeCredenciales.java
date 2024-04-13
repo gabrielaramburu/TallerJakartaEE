@@ -32,6 +32,9 @@ public class ValidadorDeCredenciales implements IdentityStore {
 		
 		hashUsuarios.put("usr3", new UsuarioSistema("usr3", "usr3pass", 
 				new ArrayList<String>(Arrays.asList("grupo1", "grupo2"))));
+		
+		hashUsuarios.put("usr4", new UsuarioSistema("usr4", "usr4pass", 
+				new ArrayList<String>(Arrays.asList("admin"))));
 	}
 
 	/**

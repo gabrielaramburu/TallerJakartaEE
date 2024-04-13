@@ -15,26 +15,17 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
 
-//En este ejemplo se está haciendo lo mismo pero sin utilizar el web.xml
-@BasicAuthenticationMechanismDefinition(realmName = "ApplicationRealm")
-//El contenedor negocia con el cliente el envío de credenciales si las mismas no 
-//vienen en el request
-//El realm puede ser visto como el alcance o area dentro de la aplicación (recursos)
-//donde aplican estas políticas de seguridad. El cliente cuando envía las credenciales
-//las envía para un determinado realm. 
-@DeclareRoles({"grupo1", "grupo2"})
-//grupos que utilizan las apis
-@Path("/api")
+
 //Por defecto no permito ejecutar nada sin permisos. 
 //Buena práctica
 @DenyAll
+@Path("/api")
 public class MensajeApi  {
 
 	@Inject
 	private MensajeServiciosImpl servicios;
 	
-	@Inject
-	private RateLimiter rateLimiter;
+	
 	
 	@GET
 	@Path("/enviarMensaje")
@@ -52,11 +43,5 @@ public class MensajeApi  {
 		return servicios.enviarMensajeComoGerente(mensaje);
 	}
 	
-	@GET
-	@Path("/activarRateLimiter") 
-	@Produces({ MediaType.APPLICATION_JSON })
-	@RolesAllowed("grupo1")
-	public void activarRateLimiter(@QueryParam("valor") boolean nuevoEstado) {
-		rateLimiter.activarRateLimiter(nuevoEstado);
-	}
+	
 }
