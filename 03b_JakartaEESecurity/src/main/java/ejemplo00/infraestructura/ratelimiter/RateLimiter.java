@@ -18,7 +18,7 @@ public class RateLimiter {
 	
 	@PostConstruct
 	public void inicializar() {
-		activo = true;
+		activo = false;
 		
 		// el balde tiene un capacidad inicial de 10
 		// cada vez que llega un request, se quita un elemento del balde
