@@ -1,4 +1,4 @@
-package ejemplo00.infraestructura;
+package ejemplo00.infraestructura.ratelimiter;
 
 import java.time.Duration;
 

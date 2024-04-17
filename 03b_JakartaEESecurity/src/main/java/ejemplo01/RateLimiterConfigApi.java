@@ -1,6 +1,6 @@
 package ejemplo01;
 
-import ejemplo00.infraestructura.RateLimiter;
+import ejemplo00.infraestructura.ratelimiter.RateLimiter;
 import jakarta.annotation.security.DenyAll;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
@@ -16,6 +16,8 @@ public class RateLimiterConfigApi {
 	@Inject
 	private RateLimiter rateLimiter;
 	
+	//curl --user usr4:usr4pass -v http://localhost:8080/03b_JakartaEESecurity/seguro/config/activarRateLimiter?valor=tru
+		
 	@GET
 	@Path("/activarRateLimiter") 
 	@Produces({ MediaType.APPLICATION_JSON })

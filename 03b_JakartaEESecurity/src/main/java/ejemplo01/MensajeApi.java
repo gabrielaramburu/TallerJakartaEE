@@ -2,7 +2,7 @@ package ejemplo01;
 
 
 import ejemplo00.aplicacion.MensajeServiciosImpl;
-import ejemplo00.infraestructura.RateLimiter;
+import ejemplo00.infraestructura.ratelimiter.RateLimiter;
 import jakarta.annotation.security.DeclareRoles;
 import jakarta.annotation.security.DenyAll;
 import jakarta.annotation.security.RolesAllowed;
@@ -26,7 +26,7 @@ public class MensajeApi  {
 	private MensajeServiciosImpl servicios;
 	
 	
-	
+	//curl --user usr1:usr1pass -v http://localhost:8080/03b_JakartaEESecurity/seguro/api/enviarMensaje?valor=Hola
 	@GET
 	@Path("/enviarMensaje")
 	@Produces({ MediaType.APPLICATION_JSON })
@@ -35,6 +35,7 @@ public class MensajeApi  {
 		return servicios.enviarMensajeComoGerente(mensaje);
 	}
 	
+	//curl --user usr2:usr2pass -v http://localhost:8080/03b_JakartaEESecurity/seguro/api/enviarMensaje2?valor=Hola2
 	@GET
 	@Path("/enviarMensaje2") 
 	@Produces({ MediaType.APPLICATION_JSON })

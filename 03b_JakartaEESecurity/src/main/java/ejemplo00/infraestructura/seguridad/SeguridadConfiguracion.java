@@ -1,8 +1,9 @@
-package ejemplo00.infraestructura;
+package ejemplo00.infraestructura.seguridad;
 
 import jakarta.annotation.security.DeclareRoles;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.security.enterprise.authentication.mechanism.http.BasicAuthenticationMechanismDefinition;
+import jakarta.security.enterprise.identitystore.DatabaseIdentityStoreDefinition;
 
 //En este ejemplo se está haciendo lo mismo pero sin utilizar el web.xml
 @BasicAuthenticationMechanismDefinition(realmName = "ApplicationRealm")
