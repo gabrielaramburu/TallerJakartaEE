@@ -18,7 +18,7 @@ public class RateLimiter {
 	
 	@PostConstruct
 	public void inicializar() {
-		activo = false;
+		activo = true;
 		
 		// el balde tiene un capacidad inicial de 10
 		// cada vez que llega un request, se quita un elemento del balde
@@ -32,7 +32,8 @@ public class RateLimiter {
 		//trabajando a su máxima capacidad aceptará una nueva 1 transación por segundo
 		Bandwidth bucketConf = Bandwidth.builder()
 				.capacity(10)
-				.refillGreedy(60, Duration.ofSeconds(30))
+				//.refillGreedy(60, Duration.ofSeconds(15))
+				.refillIntervally(5, Duration.ofSeconds(1))
 				.build();
 		
 		bucket=Bucket.builder().addLimit(bucketConf).build();
