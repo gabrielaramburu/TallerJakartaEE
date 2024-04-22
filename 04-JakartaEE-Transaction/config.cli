@@ -1,0 +1,28 @@
+#Estos comandos también se pude ejecutar desde la consola de administración jboss-cli.sh
+#Además tambien se puede seguir un wizart desde la consola de administración web
+#No queremos tener que realizar estos pasos a mano cada vez que provisionamos el servidor,
+#por eso lo hacemos desde aqui de forma automática
+connect
+    #https://www.mastertheboss.com/jbossas/jboss-datasource/how-to-install-a-jdbc-driver-on-wildfly/#google_vignette
+    #1ero se agrega un modulo
+    try
+        module add --name=org.mariadb --resources=./mariadb-java-client-3.3.3.jar --dependencies=javax.api,javax.transaction.api
+        echo "Se registra el modulo para driver mariadb"
+    catch
+        echo "El modulo para el driver ya esta registrado"
+    end-try
+    #2do después se registra el driver
+    try
+        /subsystem=datasources/jdbc-driver=mariadb:add(driver-name="mariadb",driver-module-name="org.mariadb",driver-class-name=org.mariadb.jdbc.Driver)
+        echo "Se registra driver MariaDB"
+    catch
+        echo "No se registra el driver, ya esta registrado"
+
+    end-try
+    #3ero finalmente se crea datasource
+    try
+        data-source add --name=bancodb --jndi-name=java:jboss/MariaDB --driver-name=mariadb --connection-url=jdbc:mariadb://localhost:3306/banco --user-name=root --password=mariapass
+        echo "Se crea nuevo datasource para bancodb"
+    catch
+        echo "No se crea datasource, ya existe"
+    end-try

@@ -1,0 +1,2 @@
+//
+curl -X PUT http://localhost:8080/04-JakartaEE-Transaction/api/cuentas/clientes/1/movimientos -H "Content-Type: application/json" -d '{"desc":"pago ","fecha":"2024-04-20T16:59:16.969Z[UTC]","id":1,"importe":100.0,"tipoMov":"DEBITO"}'

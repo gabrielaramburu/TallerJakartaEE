@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence>
+	<persistence-unit name="tallerjava">
+		<jta-data-source>java:jboss/MariaDB</jta-data-source>
+		<!--  Eventualmente puedo utilizar cualquier otra base de datos que no sea la por defecto
+		que viene instalada en WildFly (https://www.h2database.com/html/main.html)
+		Los pasos para utilizar una base de datos son:
+			deployar driver
+			crear datasource
+		Esto lo veremos con Jakarta Presistence -->
+		<!-- <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+		-->
+		<properties>
+			<property
+				name="jakarta.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+			<property name="jakarta.persistence.sql-load-script-source"
+				value="META-INF/initial_data.sql" />
+			<property name="eclipselink.logging.level.sql" value="FINE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
