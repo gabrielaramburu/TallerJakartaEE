@@ -80,6 +80,7 @@ public class CuentaAPI {
                         movDTO.getImporte(),
                         TipoMovimiento.CREDITO);
 
+        log.debugf("Movimiento: %s", movimiento.toString());
         cuentaServicios.nuevoMovimiento(idCliente, movimiento);
         log.infof("Fin: acreditar cliente %d", idCliente);
     }

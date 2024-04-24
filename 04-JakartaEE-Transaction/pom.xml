@@ -84,6 +84,8 @@
 				<version>${wildfly-plugin.version}</version>
 				<configuration>
 					<version>${wildfly.version}</version>
+					<!-- esto determina la configuración del servidor
+					Este es el archivo que tenemos que cambiar si queremos tocar configuración -->
 					<server-config>standalone-full.xml</server-config>
 					<add-user>
 						<users>

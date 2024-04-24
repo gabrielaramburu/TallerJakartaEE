@@ -1,0 +1,10 @@
+Comandos que se muestran en la ppt.
+Los mismos son para cambiar configuración del logeo del servidor.
+
+
+/subsystem=logging/file-handler=FILE_TALLER_JAVA:add(append=true, level=INFO, named-formatter=PATTERN, file={"path"=>"tallerJava.log", "relative-to"=>"jboss.server.log.dir"})
+
+/subsystem=logging/logger=ejemplo00.interfase.api.rest:add(handlers=[FILE_TALLER_JAVA])
+
+/subsystem=logging/file-handler=FILE_TALLER_JAVA:write-attribute(name="level", value="INFO")
+´
