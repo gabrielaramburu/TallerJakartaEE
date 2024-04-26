@@ -21,7 +21,7 @@ public class TiempoRespuestaLogInterceptor{
      * @param invocationContext información que se carga en tiempo de ejecución con el método que se
      *                          está ejecutando
      */
-    @AroundInvoke
+    @AroundInvoke //point cut
     public Object logearTiempos(InvocationContext invocationContext) throws Exception {
         LocalDateTime inicio = LocalDateTime.now();
         log.infof("** Inicio ejecucion: %s", invocationContext.getMethod().getName());

@@ -50,7 +50,7 @@ public class CuentaAPI {
     @Path("/clientes/{id}/movimientos/debito")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @MedirTiempos //con esto digo que el método será incerceptado
+    @MedirTiempos //con esto digo que el método será incerceptado, declaro un joinpoint
     //puedo además poner la anotación en la clase para que aplique sobre todos los métodos
     public void debitarCuenta(@PathParam("id") int idCliente, MovimientoDTO movDTO)  {
         log.infof("Inicio: debitar cliente %d %s", idCliente, movDTO.toString());
