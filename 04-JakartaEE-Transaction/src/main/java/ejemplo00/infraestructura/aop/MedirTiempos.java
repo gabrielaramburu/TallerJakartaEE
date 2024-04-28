@@ -1,4 +1,4 @@
-package ejemplo00.infraestructura.persistencia.aop;
+package ejemplo00.infraestructura.aop;
 
 import jakarta.interceptor.InterceptorBinding;
 

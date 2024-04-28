@@ -5,7 +5,7 @@ import ejemplo00.dominio.Cliente;
 import ejemplo00.dominio.Movimiento;
 import ejemplo00.dominio.TipoMovimiento;
 import ejemplo00.dominio.exception.SaldoInsuficienteException;
-import ejemplo00.infraestructura.persistencia.aop.MedirTiempos;
+import ejemplo00.infraestructura.aop.MedirTiempos;
 import ejemplo00.interfase.api.rest.dto.MovimientoDTO;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
