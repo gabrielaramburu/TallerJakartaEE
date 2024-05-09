@@ -1,10 +1,8 @@
-package org.tallerjava.moduloA.dominio.repo;
+package org.tallerjava.moduloPeaje.dominio.repo;
 
 
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 class ClaseEjemploTest {

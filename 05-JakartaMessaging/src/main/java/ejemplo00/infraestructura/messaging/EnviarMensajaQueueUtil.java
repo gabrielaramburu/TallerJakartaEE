@@ -17,7 +17,7 @@ public class EnviarMensajaQueueUtil {
     @Inject
     private JMSContext jmsContext;
 
-    @Resource (lookup = "java:jboss/exported/jms/queue/servicioPago")
+    @Resource (lookup = "java:jboss/exported/jms/queue/servicioPago") //direccion jndi
     //otro tipo de injección de depenencia
     //en este caso injecto un recurso (queue) disponible
     private Queue queuePagosRealizados ;

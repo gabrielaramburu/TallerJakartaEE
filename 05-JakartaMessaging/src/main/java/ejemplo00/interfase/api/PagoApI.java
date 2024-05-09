@@ -1,6 +1,7 @@
 package ejemplo00.interfase.api;
 
 import ejemplo00.aplicacion.PagosServicios;
+import ejemplo00.infraestructura.messaging.PagoRealizadoMessage;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import jakarta.inject.Inject;
@@ -23,6 +24,14 @@ public class PagoApI {
         log.infof("Inicio Pago");
 
         pagos.realizarPagoAsyncro(pagoDTO);
+        /*PagoRealizadoMessage pagoMessage = new PagoRealizadoMessage(
+                pagoDTO.descripcion(),
+                pagoDTO.monto(),
+                pagoDTO.idCliente()
+        );
+        pagos.realizarPagoSincro(pagoMessage);
+        */
+
         log.infof("Fin Pago");
     }
 }
