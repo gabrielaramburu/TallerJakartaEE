@@ -11,6 +11,7 @@ import java.util.List;
 public class UsuarioRepositorioImpl implements UsuarioRepositorio {
     @Override
     public Usuario findByTag(int tag) {
+        //Todo pendiende de pasar esto a su correspondiente objeto mock utilizado por los test
         PrePaga prePaga = new PrePaga(1000);
         ClienteTelepeaje cliTelepeaje = new ClienteTelepeaje(prePaga, null);
         List<Vehiculo> listVehiculos = new ArrayList<>();

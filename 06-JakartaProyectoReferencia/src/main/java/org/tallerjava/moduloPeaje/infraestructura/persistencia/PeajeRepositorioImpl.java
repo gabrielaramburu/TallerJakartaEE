@@ -6,13 +6,10 @@ import org.tallerjava.moduloPeaje.dominio.repo.PeajeRepositorio;
 
 @ApplicationScoped
 public class PeajeRepositorioImpl implements PeajeRepositorio {
+    //Esta clase por ahora no se usa ya que estoy ofreciendo mock al momento de realizar los test
     @Override
     public Vehiculo findByTag(int tag) {
-        Vehiculo vehiculo = new Vehiculo(1,
-                new Identificador(1,"baa 4444", 10001),
-                 "ford", "fiesta", Nacionalidad.NACIONAL);
-
-        return vehiculo;
+       return null;
     }
 
     @Override
@@ -22,11 +19,11 @@ public class PeajeRepositorioImpl implements PeajeRepositorio {
 
     @Override
     public Preferencial obtenerTarifaPreferencial() {
-        return new Preferencial(100);
+       return null;
     }
 
     @Override
     public Comun obtenerTarifaComun() {
-        return new Comun(150);
+       return null;
     }
 }
