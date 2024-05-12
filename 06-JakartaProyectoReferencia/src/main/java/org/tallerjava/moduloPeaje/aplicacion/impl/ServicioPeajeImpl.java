@@ -2,6 +2,7 @@ package org.tallerjava.moduloPeaje.aplicacion.impl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.jboss.logging.Logger;
 import org.tallerjava.moduloGestion.dominio.Cuenta;
 import org.tallerjava.moduloGestion.dominio.PostPaga;
 import org.tallerjava.moduloGestion.dominio.PrePaga;
@@ -16,6 +17,8 @@ import java.util.List;
 
 @ApplicationScoped
 public class ServicioPeajeImpl implements ServicioPeaje {
+    private static final Logger log = Logger.getLogger(ServicioPeajeImpl.class);
+
     @Inject
     private PeajeRepositorio repo;
 
@@ -27,6 +30,7 @@ public class ServicioPeajeImpl implements ServicioPeaje {
 
     @Override
     public boolean estaHabilitadoSincronico(int tag, String matricula) {
+        log.infof("*** Verificando peaje vehiculo: tag %s, matricula: %s", tag, matricula);
         boolean habilitado = false;
         Vehiculo vehiculo = existeVehiculo(tag, matricula);
         if (vehiculo != null) {
@@ -39,20 +43,25 @@ public class ServicioPeajeImpl implements ServicioPeaje {
             }
         }
 
-
+        log.infof("Resultado habilitacion tag %s, matricula %s es: %b", tag, matricula, habilitado);
         return habilitado;
     }
 
     private boolean  procesarVehiculoExtranjero(int tag, Vehiculo vehiculo) {
+        log.infof("*** Procesando pago vehículo extranjero %s tag:", tag);
         boolean habilitado = false;
         //todos los vehiculos extranjeros son preferenciales
         Preferencial tarifa = repo.obtenerTarifaPreferencial();
 
+        log.infof("Tarifa obtenida %f ",tarifa.getValor());
         //según las reglas del negocio, lo primero es cobrar con PrePago
         habilitado = servicioPagoFacade.realizarPrePago(tag, tarifa.getValor());
+
+        log.infof("Respuesta prePago: %b ",habilitado);
         if (!habilitado) {
             //fallo el cobro prepago, intento con la tarjeta (postPago)
-            habilitado = servicioPagoFacade.realizarPrePago(tag, tarifa.getValor());
+            habilitado = servicioPagoFacade.realizarPostPago(tag, tarifa.getValor());
+            log.infof("Respuesta postPago: %b ",habilitado);
             if (!habilitado) {
                 //TODO mando evento al modulo de monitoreo
                 //el auto no pasa
@@ -89,9 +98,14 @@ public class ServicioPeajeImpl implements ServicioPeaje {
 
     private Vehiculo existeVehiculo(int tag, String matricula) {
         Vehiculo vehiculo = repo.findByTag(tag);
-        if (vehiculo == null) {
+
+        if (vehiculo != null) {
+            log.infof("Vehiculo encontrado con tag: %s", tag);
+        } else {
             vehiculo = repo.findByMatricula(matricula);
-            if (vehiculo == null) {
+            if (vehiculo != null) {
+                log.infof("Vehiculo encontrado com matricula: %s", tag);
+            } else {
                 //error grave el vehiculo no esta en el sistema
                 evento.publicarVehiculoNoEncontrado(
                         "Vehiculo no encontrado: " + tag + " " + matricula);

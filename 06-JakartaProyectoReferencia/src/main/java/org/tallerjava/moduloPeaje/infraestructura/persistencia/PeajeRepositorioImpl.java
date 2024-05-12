@@ -1,8 +1,10 @@
 package org.tallerjava.moduloPeaje.infraestructura.persistencia;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import org.tallerjava.moduloPeaje.dominio.*;
 import org.tallerjava.moduloPeaje.dominio.repo.PeajeRepositorio;
 
+@ApplicationScoped
 public class PeajeRepositorioImpl implements PeajeRepositorio {
     @Override
     public Vehiculo findByTag(int tag) {

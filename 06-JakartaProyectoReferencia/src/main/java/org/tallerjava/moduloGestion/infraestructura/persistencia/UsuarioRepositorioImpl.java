@@ -22,12 +22,4 @@ public class UsuarioRepositorioImpl implements UsuarioRepositorio {
         return usuario;
     }
 
-    @Override
-    public List<Cuenta> findCuentasByTag(int tag) {
-        List<Cuenta> listCuentas = new ArrayList<>();
-        listCuentas.add(new PrePaga(100));
-        listCuentas.add(new PostPaga(
-                new Tarjeta(1,2222,null, "usuario tarjeta")));
-        return listCuentas;
-    }
 }

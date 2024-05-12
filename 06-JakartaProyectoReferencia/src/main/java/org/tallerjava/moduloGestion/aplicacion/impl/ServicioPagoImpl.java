@@ -22,6 +22,8 @@ public class ServicioPagoImpl implements ServicioPago {
         if (usr != null) {
             if (usr.getClienteTelepeaje() != null) {
                 PrePaga ctaPrepaga = usr.getClienteTelepeaje().getCtaPrepaga();
+
+                //no controlo que el salod sea suficente
                 ctaPrepaga.descontarSaldo(importe);
 
                 notificarPrePago(usr);
