@@ -18,5 +18,20 @@ Además cada módulo cuenta con sus propias clases de Dominio y sus repositorio 
 
 ![image](https://github.com/gabrielaramburu/TallerJakartaEE/assets/63823685/45eeedb5-355a-4513-9eca-b28cef2f4a8f)
 
+### Dependencias entre módulos
+
+Nota: posible idea para documentar las dependencias entre módulos. Los diagramas, son representativos, no están completos.
+
+--- 
+**Módulo Peaje**
+
+![image](https://github.com/gabrielaramburu/TallerJakartaEE/assets/63823685/48db9731-0d83-4e2a-9647-8e64140ab389)
+
+---
+
+**Módulo Gestión**
+![image](https://github.com/gabrielaramburu/TallerJakartaEE/assets/63823685/63854c26-dd06-4e4e-bcf0-7544fe041fb6)
 
 
+---
+Otra idea interesante es documentar los eventos que dispara cada módulo y quien los escucha
