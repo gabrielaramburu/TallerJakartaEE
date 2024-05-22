@@ -5,7 +5,7 @@ import org.tallerjava.moduloPeaje.dominio.Preferencial;
 import org.tallerjava.moduloPeaje.dominio.Vehiculo;
 
 /**
- * Eventualmente, si esta clase crece mucho, puedo tener más de un repositorip
+ * Eventualmente, si esta clase crece mucho, puedo tener más de un repositorio
  */
 public interface PeajeRepositorio {
     public Vehiculo findByTag(int tag);

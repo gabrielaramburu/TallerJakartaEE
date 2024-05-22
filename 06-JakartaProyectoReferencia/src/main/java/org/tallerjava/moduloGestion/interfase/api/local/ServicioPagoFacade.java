@@ -3,6 +3,7 @@ package org.tallerjava.moduloGestion.interfase.api.local;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.tallerjava.moduloGestion.aplicacion.ServicioPago;
+import org.tallerjava.moduloGestion.aplicacion.impl.CapaAplicacionPeajeQualifier;
 import org.tallerjava.moduloGestion.dominio.Cuenta;
 
 import java.util.List;
@@ -16,23 +17,19 @@ import java.util.List;
  * desde el modulo cliente directamente a la capa de aplicación.
  */
 @ApplicationScoped
-public class ServicioPagoFacade implements ServicioPago {
+public class ServicioPagoFacade {
+
     @Inject
     private ServicioPago servicioPago;
 
-    @Override
     public boolean realizarPrePago(int tag, double importe) {
-
         return servicioPago.realizarPrePago(tag, importe);
     }
 
-    @Override
     public boolean realizarPostPago(int tag, double importe) {
-
         return servicioPago.realizarPostPago(tag, importe);
     }
 
-    @Override
     public boolean esClienteTelepeaje(int tag) {
         return servicioPago.esClienteTelepeaje(tag);
     }

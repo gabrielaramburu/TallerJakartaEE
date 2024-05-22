@@ -35,6 +35,7 @@ public class ServicioPeajeImpl implements ServicioPeaje {
         Vehiculo vehiculo = existeVehiculo(tag, matricula);
         if (vehiculo != null) {
             if (vehiculo.nacional()) {
+                log.infof("Vehículo nacional: %s",vehiculo.getIdentificador());
                 mandarAQueueDePagos(vehiculo);
                 habilitado = true;
 
@@ -104,7 +105,7 @@ public class ServicioPeajeImpl implements ServicioPeaje {
         } else {
             vehiculo = repo.findByMatricula(matricula);
             if (vehiculo != null) {
-                log.infof("Vehiculo encontrado com matricula: %s", tag);
+                log.infof("Vehiculo encontrado com matricula: %s", matricula);
             } else {
                 //error grave el vehiculo no esta en el sistema
                 evento.publicarVehiculoNoEncontrado(

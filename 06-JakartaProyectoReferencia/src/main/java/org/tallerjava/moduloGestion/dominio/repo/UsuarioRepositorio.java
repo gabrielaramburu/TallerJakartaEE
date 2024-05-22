@@ -1,9 +1,8 @@
 package org.tallerjava.moduloGestion.dominio.repo;
 
-import org.tallerjava.moduloGestion.dominio.Cuenta;
-import org.tallerjava.moduloGestion.dominio.Usuario;
+import jakarta.enterprise.context.ApplicationScoped;
+import org.tallerjava.moduloGestion.dominio.usuario.Usuario;
 
-import java.util.List;
 
 public interface UsuarioRepositorio {
     /**
@@ -13,4 +12,9 @@ public interface UsuarioRepositorio {
      */
     public Usuario findByTag(int tag);
 
+    public long save(Usuario usuario);
+
+    public Usuario findById(long id);
+
+    void actualizarUsuario(Usuario usr);
 }

@@ -1,26 +1,40 @@
 package org.tallerjava.moduloGestion.infraestructura.persistencia;
 
-import org.tallerjava.moduloGestion.dominio.*;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import org.tallerjava.moduloGestion.dominio.repo.UsuarioRepositorio;
-import org.tallerjava.moduloPeaje.dominio.Identificador;
+import org.tallerjava.moduloGestion.dominio.usuario.Usuario;
+import org.tallerjava.moduloPeaje.dominio.Vehiculo;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
+@ApplicationScoped
 public class UsuarioRepositorioImpl implements UsuarioRepositorio {
+    @PersistenceContext
+    private EntityManager em;
+
     @Override
     public Usuario findByTag(int tag) {
-        //Todo pendiende de pasar esto a su correspondiente objeto mock utilizado por los test
-        PrePaga prePaga = new PrePaga(1000);
-        ClienteTelepeaje cliTelepeaje = new ClienteTelepeaje(prePaga, null);
-        List<Vehiculo> listVehiculos = new ArrayList<>();
-        Identificador identificador = new Identificador(1, "BAA 2222", 2001);
-        listVehiculos.add(new Vehiculo(1, identificador, cliTelepeaje));
-        Usuario usuario = new
-                Nacional(1, "pepe","pepe@gmail.com",listVehiculos, cliTelepeaje);
+        return null;
+    }
 
-        return usuario;
+    @Override
+    public long save(Usuario usuario) {
+        em.persist(usuario.getClienteTelepeaje().getCtaPrepaga());
+        em.persist(usuario.getClienteTelepeaje());
+        em.persist(usuario);
+        return usuario.getId();
+    }
+
+    @Override
+    public Usuario findById(long id) {
+         return em.find(Usuario.class, id);
+    }
+
+    @Override
+    public void actualizarUsuario(Usuario usr) {
+        em.merge(usr);
     }
 
 }

@@ -25,14 +25,14 @@
 	</properties>
 
 	<dependencies>
-		<!-- para la iteración 1 no precisa un servidor
+		<!-- Dependencias de la plataforma -->
 		<dependency>
 			<groupId>jakarta.platform</groupId>
 			<artifactId>jakarta.jakartaee-api</artifactId>
 			<version>${jakartaee-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		-->
+
 		<dependency>
 			<groupId>org.jboss.weld.se</groupId>
 			<artifactId>weld-se-shaded</artifactId>
@@ -117,6 +117,21 @@
 				<configuration>
 					<version>${wildfly.version}</version>
 					<server-config>standalone-full.xml</server-config>
+
+					<add-user>
+						<users>
+							<user>
+								<username>root</username>
+								<password>rootpass1234</password>
+								<application-user>false</application-user>
+							</user>
+						</users>
+					</add-user>
+
+					<scripts>
+						<!-- ver archivo config.cli que está en ./ -->
+						<script>config.cli</script>
+					</scripts>
 				</configuration>
 			</plugin>
 		</plugins>

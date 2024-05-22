@@ -2,16 +2,18 @@ package org.tallerjava.moduloGestion.aplicacion.impl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import org.jboss.logging.Logger;
 import org.tallerjava.moduloGestion.aplicacion.ServicioPago;
-import org.tallerjava.moduloGestion.dominio.Cuenta;
 import org.tallerjava.moduloGestion.dominio.PrePaga;
-import org.tallerjava.moduloGestion.dominio.Usuario;
+import org.tallerjava.moduloGestion.dominio.usuario.ClienteTelepeaje;
+import org.tallerjava.moduloGestion.dominio.usuario.Usuario;
 import org.tallerjava.moduloGestion.dominio.repo.UsuarioRepositorio;
-
-import java.util.List;
 
 @ApplicationScoped
 public class ServicioPagoImpl implements ServicioPago {
+    private static final Logger log = Logger.getLogger(ServicioPagoImpl.class);
+
     @Inject
     private UsuarioRepositorio repoUsuario;
 
@@ -61,5 +63,30 @@ public class ServicioPagoImpl implements ServicioPago {
             return true;
         } else return false;
     }
+
+    @Override
+    @Transactional
+    public long altaClienteTelepeaje(Usuario usuario) {
+        PrePaga prePaga = new PrePaga(0);
+
+        //los clientes nuevos no tienen porque tener tarjetas asociadas
+        ClienteTelepeaje clienteTelepeaje = new ClienteTelepeaje(prePaga,null);
+        usuario.setClienteTelepeaje(clienteTelepeaje);
+        return repoUsuario.save(usuario);
+    }
+
+    @Override
+    @Transactional
+    public double cargarSaldo(long idUsuario, double importe) {
+        Usuario usr = repoUsuario.findById(idUsuario);
+        if (usr != null) {
+            double saldo = usr.getClienteTelepeaje().getCtaPrepaga().getSaldo();
+            log.infof("Saldo actual usuario %s es %s", usr.getNombre() , saldo);
+            usr.cargarSaldo(importe);
+            repoUsuario.actualizarUsuario(usr);
+        }
+        return usr.consultarSaldo(); //notese que el manejo de errores es deficiente
+    }
+
 
 }

@@ -7,7 +7,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>jakarta.ws.rs.core.Application</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<url-pattern>/trafico/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>
