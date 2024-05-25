@@ -3,17 +3,12 @@ package org.tallerjava.moduloPeaje.aplicacion.impl;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.jboss.logging.Logger;
-import org.tallerjava.moduloGestion.dominio.Cuenta;
-import org.tallerjava.moduloGestion.dominio.PostPaga;
-import org.tallerjava.moduloGestion.dominio.PrePaga;
 import org.tallerjava.moduloPeaje.aplicacion.ServicioPeaje;
 import org.tallerjava.moduloPeaje.dominio.Preferencial;
 import org.tallerjava.moduloPeaje.dominio.Vehiculo;
 import org.tallerjava.moduloPeaje.dominio.repo.PeajeRepositorio;
-import org.tallerjava.moduloGestion.interfase.api.local.ServicioPagoFacade;
+import org.tallerjava.moduloGestion.interfase.local.ServicioPagoFacade;
 import org.tallerjava.moduloPeaje.interfase.evento.out.PublicadorEvento;
-
-import java.util.List;
 
 @ApplicationScoped
 public class ServicioPeajeImpl implements ServicioPeaje {

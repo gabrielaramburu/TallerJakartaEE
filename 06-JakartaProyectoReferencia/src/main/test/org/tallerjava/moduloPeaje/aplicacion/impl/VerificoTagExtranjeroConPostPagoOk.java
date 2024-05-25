@@ -9,7 +9,7 @@ import org.jboss.weld.junit5.WeldSetup;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.tallerjava.moduloGestion.interfase.api.local.ServicioPagoFacade;
+import org.tallerjava.moduloGestion.interfase.local.ServicioPagoFacade;
 import org.tallerjava.moduloPeaje.dominio.*;
 import org.tallerjava.moduloPeaje.dominio.repo.PeajeRepositorio;
 import org.tallerjava.moduloPeaje.infraestructura.persistencia.PeajeRepositorioImpl;

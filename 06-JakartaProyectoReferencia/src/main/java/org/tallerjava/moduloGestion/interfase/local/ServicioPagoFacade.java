@@ -1,4 +1,4 @@
-package org.tallerjava.moduloGestion.interfase.api.local;
+package org.tallerjava.moduloGestion.interfase.local;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
