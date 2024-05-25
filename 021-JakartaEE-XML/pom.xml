@@ -19,7 +19,7 @@
 		<jakartaee-api.version>10.0.0</jakartaee-api.version>
 		<compiler-plugin.version>3.11.0</compiler-plugin.version>
 		<war-plugin.version>3.3.2</war-plugin.version>
-		
+		<wildfly.version>27.0.1.Final</wildfly.version>
 		
 		<version.wildfly.maven.plugin>4.2.1.Final</version.wildfly.maven.plugin>
 		<version.wildfly.bom>31.0.0.Final</version.wildfly.bom>
@@ -60,14 +60,11 @@
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
 				<version>${version.wildfly.maven.plugin}</version>
-				
-				<executions>
-					<execution>
-						<goals>
-							<goal>provision</goal>
-						</goals>
-					</execution>
-				</executions>
+
+				<configuration>
+					<version>${wildfly.version}</version>
+					<server-config>standalone-full.xml</server-config>
+				</configuration>
 			</plugin>
 			
 			
