@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0388ae-a1a7-43f2-bd7b-d748f61808f3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01-JakartaEE-CDI/target/classes/META-INF/maven/taller.java.ejemplos/01-JakartaEE-CDI/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../01-JakartaEE-CDI/target/classes/META-INF/maven/taller.java.ejemplos/01-JakartaEE-CDI/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/java/org/tallerjava/moduloGestion/interfase/api/local/ServicioPagoFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/java/org/tallerjava/moduloGestion/interfase/local/ServicioPagoFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/java/org/tallerjava/moduloGestion/interfase/remota/rest/ClienteAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/java/org/tallerjava/moduloGestion/interfase/remota/rest/ClienteAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/java/org/tallerjava/moduloPeaje/aplicacion/impl/ServicioPeajeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/java/org/tallerjava/moduloPeaje/aplicacion/impl/ServicioPeajeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/test/org/tallerjava/moduloPeaje/aplicacion/impl/VerificoTagExtranjeroConPostPagoError.java" beforeDir="false" afterPath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/test/org/tallerjava/moduloPeaje/aplicacion/impl/VerificoTagExtranjeroConPostPagoError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/test/org/tallerjava/moduloPeaje/aplicacion/impl/VerificoTagExtranjeroConPostPagoOk.java" beforeDir="false" afterPath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/test/org/tallerjava/moduloPeaje/aplicacion/impl/VerificoTagExtranjeroConPostPagoOk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/test/org/tallerjava/moduloPeaje/aplicacion/impl/VerificoTagExtranjeroConPrePagoOk.java" beforeDir="false" afterPath="$PROJECT_DIR$/../06-JakartaProyectoReferencia/src/main/test/org/tallerjava/moduloPeaje/aplicacion/impl/VerificoTagExtranjeroConPrePagoOk.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +21,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2fMriliwk1c9l7o8UxREKyMMMT1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,6 +36,10 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/gabriel/workspace/TallerJava/fuentes/021-JakartaEE-XML",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -52,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713621916389</updated>
       <workItem from="1713621917527" duration="26000" />
+      <workItem from="1716555510396" duration="952000" />
     </task>
     <servers />
   </component>
