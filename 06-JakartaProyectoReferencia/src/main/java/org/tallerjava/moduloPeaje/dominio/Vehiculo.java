@@ -22,7 +22,15 @@ public class Vehiculo {
 
     public Vehiculo() {}
 
+    public Vehiculo(Identificador ide, String marca, String modelo, Nacionalidad nacionalidad) {
+        this.identificador = ide;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.nacionalidad = nacionalidad;
+    }
+
     public boolean nacional() {
-        return nacionalidad == Nacionalidad.NACIONAL?true:false;
+        //return nacionalidad == Nacionalidad.NACIONAL?true:false;
+        return false;
     }
 }

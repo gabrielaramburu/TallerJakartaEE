@@ -1,11 +1,9 @@
 package org.tallerjava.moduloGestion.aplicacion;
 
-import org.tallerjava.moduloGestion.dominio.Cuenta;
+import org.tallerjava.moduloGestion.dominio.Vehiculo;
 import org.tallerjava.moduloGestion.dominio.usuario.Usuario;
 
-import java.util.List;
-
-public interface ServicioPago {
+public interface ServicioGestion {
     public boolean realizarPrePago(int tag, double importe);
     public boolean realizarPostPago(int tag, double importe);
 
@@ -13,4 +11,6 @@ public interface ServicioPago {
 
     public long altaClienteTelepeaje(Usuario usuario);
     public double cargarSaldo(long idUsuario, double importe);
+
+    public boolean vincularVehiculo(Vehiculo vehiculo, long idCliente);
 }

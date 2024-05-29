@@ -13,4 +13,6 @@ public interface PeajeRepositorio {
 
     public Preferencial obtenerTarifaPreferencial();
     public Comun obtenerTarifaComun();
+
+    void saveVehiculo(Vehiculo vehiculo);
 }

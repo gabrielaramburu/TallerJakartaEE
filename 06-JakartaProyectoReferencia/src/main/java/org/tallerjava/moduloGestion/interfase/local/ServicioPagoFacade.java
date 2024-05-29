@@ -2,11 +2,7 @@ package org.tallerjava.moduloGestion.interfase.local;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.tallerjava.moduloGestion.aplicacion.ServicioPago;
-import org.tallerjava.moduloGestion.aplicacion.impl.CapaAplicacionPeajeQualifier;
-import org.tallerjava.moduloGestion.dominio.Cuenta;
-
-import java.util.List;
+import org.tallerjava.moduloGestion.aplicacion.ServicioGestion;
 
 /**
  * Si bien esta fachada es un pasamano, notese que su utilidad esta relacionada
@@ -20,7 +16,7 @@ import java.util.List;
 public class ServicioPagoFacade {
 
     @Inject
-    private ServicioPago servicioPago;
+    private ServicioGestion servicioPago;
 
     public boolean realizarPrePago(int tag, double importe) {
         return servicioPago.realizarPrePago(tag, importe);

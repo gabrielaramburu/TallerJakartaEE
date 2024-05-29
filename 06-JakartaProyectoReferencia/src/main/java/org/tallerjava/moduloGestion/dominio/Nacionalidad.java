@@ -7,4 +7,15 @@ public enum Nacionalidad {
     private int id;
     Nacionalidad(int id) { this.id = id; }
     public int getId() { return id; }
+
+    public static Nacionalidad getById(int id) {
+        switch (id) {
+            case 1:
+                return NACIONAL;
+            case 2:
+                return EXTRANJERO;
+            default:
+                throw new IllegalArgumentException("Nacionalidad invalida");
+        }
+    }
 }

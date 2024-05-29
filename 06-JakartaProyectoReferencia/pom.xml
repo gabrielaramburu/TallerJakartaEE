@@ -89,7 +89,18 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-commons</artifactId>
+			<version>1.12.0</version>
+		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-influx -->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-influx</artifactId>
+			<version>1.13.0</version>
+		</dependency>
 
 	</dependencies>
 

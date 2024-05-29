@@ -20,8 +20,7 @@ public abstract class Cuenta {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     protected long id;
-
-    protected long nroCuenta;
+    protected String descripcion;
     protected LocalDateTime fechaApertura;
 
 }

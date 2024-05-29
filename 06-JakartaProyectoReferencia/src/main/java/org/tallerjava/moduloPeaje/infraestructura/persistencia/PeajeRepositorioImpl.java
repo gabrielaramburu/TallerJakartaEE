@@ -35,7 +35,6 @@ public class PeajeRepositorioImpl implements PeajeRepositorio {
 
     @Override
     public Vehiculo findByMatricula(String matricula) {
-
         String sql = "select v from Vehiculo v where v.identificador.matricula = :matricula";
         TypedQuery<Vehiculo> findByTag = em.createQuery(sql, Vehiculo.class).setParameter("matricula", matricula);
         try {
@@ -69,5 +68,10 @@ public class PeajeRepositorioImpl implements PeajeRepositorio {
             log.error("Error de inconsistencia de datos, siempre tiene que existir una tarifa Comun.");
             return null;
         }
+    }
+
+    @Override
+    public void saveVehiculo(Vehiculo vehiculo) {
+        em.persist(vehiculo);
     }
 }

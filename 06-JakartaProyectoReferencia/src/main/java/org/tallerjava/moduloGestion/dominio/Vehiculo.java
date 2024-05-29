@@ -24,7 +24,7 @@ import org.tallerjava.moduloGestion.dominio.Nacionalidad;
 public class Vehiculo {
 
     @Id
-    private long tag; //el número de tag no lo determina este Sistema,
+    private int tag; //el número de tag no lo determina este Sistema,
 
     private String marca;
     private String modelo;

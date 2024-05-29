@@ -2,6 +2,7 @@ package org.tallerjava.moduloPeaje.aplicacion.impl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import org.jboss.logging.Logger;
 import org.tallerjava.moduloPeaje.aplicacion.ServicioPeaje;
 import org.tallerjava.moduloPeaje.dominio.Preferencial;
@@ -31,7 +32,7 @@ public class ServicioPeajeImpl implements ServicioPeaje {
         if (vehiculo != null) {
             if (vehiculo.nacional()) {
                 log.infof("Vehículo nacional: %s",vehiculo.getIdentificador());
-                mandarAQueueDePagos(vehiculo);
+                mandarAQueueDePagos(tag, vehiculo);
                 habilitado = true;
 
             } else {
@@ -44,7 +45,7 @@ public class ServicioPeajeImpl implements ServicioPeaje {
     }
 
     private boolean  procesarVehiculoExtranjero(int tag, Vehiculo vehiculo) {
-        log.infof("*** Procesando pago vehículo extranjero %s tag:", tag);
+        log.infof("*** Procesando pago vehículo extranjero %s ", tag);
         boolean habilitado = false;
         //todos los vehiculos extranjeros son preferenciales
         Preferencial tarifa = repo.obtenerTarifaPreferencial();
@@ -83,13 +84,16 @@ public class ServicioPeajeImpl implements ServicioPeaje {
             //significa que no es cliente preferencial o que fallaron los dos sistemas
             //de cobro previos
             //TODO invocar a modulo de pago Sucive
+
+            evento.publicarPagoSucive("Pago sucive para vehiculo:" + tag);
         }
 
         return habilitado;
     }
 
-    private void mandarAQueueDePagos(Vehiculo vehiculo) {
-        //TODO esto lo vamos a hacer más adelante.
+    private void mandarAQueueDePagos(int tag, Vehiculo vehiculo) {
+        //TODO por ahor lo procesamos sincrónicamente
+        procesarVehiculoNacional(tag, vehiculo);
     }
 
     private Vehiculo existeVehiculo(int tag, String matricula) {
@@ -118,5 +122,12 @@ public class ServicioPeajeImpl implements ServicioPeaje {
     @Override
     public void actualizarTarifaPreferencial(double importe) {
 
+    }
+
+    @Override
+    @Transactional
+    public void altaVehiculo(Vehiculo vehiculo) {
+        log.infof("Alta de vehiculo %s", vehiculo.toString());
+        repo.saveVehiculo(vehiculo);
     }
 }

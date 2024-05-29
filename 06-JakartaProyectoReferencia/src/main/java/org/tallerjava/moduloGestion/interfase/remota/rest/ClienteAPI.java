@@ -7,9 +7,9 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.MediaType;
 import org.jboss.logging.Logger;
-import org.tallerjava.moduloGestion.aplicacion.ServicioPago;
+import org.tallerjava.moduloGestion.aplicacion.ServicioGestion;
+import org.tallerjava.moduloGestion.dominio.Vehiculo;
 import org.tallerjava.moduloGestion.dominio.usuario.Usuario;
-import org.tallerjava.moduloPeaje.aplicacion.ServicioPeaje;
 
 @ApplicationScoped
 @Path("/cliente")
@@ -17,7 +17,7 @@ public class ClienteAPI {
     private static final Logger log = Logger.getLogger(ClienteAPI.class);
 
     @Inject
-    private ServicioPago servicioPago;
+    private ServicioGestion servicioPago;
 
     //curl -X POST -v http://localhost:8080/06-JakartaProyectoReferencia/trafico/cliente -H "Content-Type: application/json" -d '{"nombre":"nom1","email":"nom1@gmail.com", "nacionalidad":1}'
     @POST
@@ -37,6 +37,15 @@ public class ClienteAPI {
         double nuevoSaldo = servicioPago.cargarSaldo(saldoDTO.getIdCliente(), saldoDTO.getImporte());
         return nuevoSaldo;
     }
+
+    @POST
+    @Path("/vehiculo")
+    public boolean vincularVehiculo(VehiculoDTO vehiculoDTO) {
+        log.infof("Vincular vehiculo %s : ", vehiculoDTO);
+        Vehiculo vehiculo = vehiculoDTO.buildVehiculo();
+        return servicioPago.vincularVehiculo(vehiculo, vehiculoDTO.getIdCliente());
+    }
+
 
 
 }
