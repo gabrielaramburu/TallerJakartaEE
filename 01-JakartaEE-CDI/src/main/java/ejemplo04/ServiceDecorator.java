@@ -9,7 +9,8 @@ import jakarta.inject.Inject;
 //Convertimos esta clase en un Decorator
 //Observar que implementamos la misma interface que la clase que queremos decorar
 
-//Si declaramos la interface como abstract no estamos obligados a implementar todos sus métodos
+//Si declaramos el decorator como abstract no estamos obligados a implementar todos los métodos
+//de la interface
 //solo decoraremos lo que nos interesa.
 @Decorator
 @Priority(1) //para habilitar el uso del Decorador

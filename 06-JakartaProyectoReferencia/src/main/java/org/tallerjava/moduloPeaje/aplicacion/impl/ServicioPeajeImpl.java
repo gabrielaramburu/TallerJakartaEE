@@ -93,7 +93,10 @@ public class ServicioPeajeImpl implements ServicioPeaje {
 
     private void mandarAQueueDePagos(int tag, Vehiculo vehiculo) {
         //TODO por ahor lo procesamos sincrónicamente
-        procesarVehiculoNacional(tag, vehiculo);
+        //colocamos un mensaje en la queue
+        //el mensaje va a tener la misma información que me llega al autorizar
+        //un tag o una matricula o ambas
+
     }
 
     private Vehiculo existeVehiculo(int tag, String matricula) {

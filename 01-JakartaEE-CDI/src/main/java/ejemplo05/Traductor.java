@@ -35,7 +35,11 @@ public class Traductor {
 		lenguajes.add(new Lenguaje(3, "Portugues"));
 		
 		//este comportamiento no lo tengo disponible en el Constructor del objeto
+		//es decir en el constructor no tiene sentido (no va a funcionar) preguntar 
+		//si traductorExterno !=null ya que seguramente lo sea.
 		if (traductorExterno != null) {
+			//este es otro ejemplo de como mi programa cabia de comportamiento, dependiendo si existe
+			//o no una implementación.
 			lenguajes.add(new Lenguaje(4, traductorExterno.obtenerLenguaje()));
 		}
 		

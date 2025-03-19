@@ -5,10 +5,10 @@ import org.jboss.weld.junit5.auto.EnableAutoWeld;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import ejemplo07.aplicacion.ClienteRepositorio;
 import ejemplo07.aplicacion.ClienteService;
 import ejemplo07.aplicacion.impl.ClienteServiceImpl;
 import ejemplo07.dominio.Cliente;
-import ejemplo07.dominio.ClienteRepositorio;
 import ejemplo07.infraestructura.persistencia.JpaClienteRepositorio;
 import jakarta.inject.Inject;
 
@@ -17,6 +17,7 @@ import jakarta.inject.Inject;
 @AddPackages(JpaClienteRepositorio.class)
 class Ejemplo07 {
 
+	//desde la capa superior necesito inyectar los servicios de la capa de Aplicación
 	@Inject
 	private ClienteService clienteService;
 	

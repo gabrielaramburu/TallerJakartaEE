@@ -1,6 +1,8 @@
-package ejemplo07.dominio;
+package ejemplo07.aplicacion;
 
 import java.util.List;
+
+import ejemplo07.dominio.Cliente;
 
 public interface ClienteRepositorio {
 	List<Cliente> findAll();

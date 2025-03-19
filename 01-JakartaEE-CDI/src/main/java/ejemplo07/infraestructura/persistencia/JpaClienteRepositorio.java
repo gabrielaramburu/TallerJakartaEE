@@ -3,8 +3,8 @@ package ejemplo07.infraestructura.persistencia;
 import java.util.ArrayList;
 import java.util.List;
 
+import ejemplo07.aplicacion.ClienteRepositorio;
 import ejemplo07.dominio.Cliente;
-import ejemplo07.dominio.ClienteRepositorio;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 

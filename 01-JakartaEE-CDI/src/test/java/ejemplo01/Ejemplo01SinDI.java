@@ -13,7 +13,7 @@ class Ejemplo01SinDI {
 	@DisplayName ("Probando pago Factura sin usar DI")
 	void test() {
 		factura = new Factura(new TarjetaDebito());
-		factura.pagar(100.0);
+		assertTrue(factura.pagar(100.0));
 	}
 
 }

@@ -128,8 +128,8 @@
 				<configuration>
 					<version>${wildfly.version}</version>
 					<server-config>standalone-full.xml</server-config>
-
 					<add-user>
+
 						<users>
 							<user>
 								<username>root</username>

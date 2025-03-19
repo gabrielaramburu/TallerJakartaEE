@@ -69,6 +69,9 @@
 					<version>${wildfly.version}</version>
 					<server-config>standalone-full.xml</server-config>
 
+					<provisioningDir>/home/gabriel/workspace/TallerJava/fuentes/06-JakartaProyectoReferencia/target/server</provisioningDir>
+					<overwriteProvisionedServer>false</overwriteProvisionedServer>
+
 					<add-user>
 						<users>
 							<user>
@@ -81,6 +84,7 @@
 
 					<scripts>
 						<script>queue.config</script>
+						<script></script>
 					</scripts>
 				</configuration>
 			</plugin>

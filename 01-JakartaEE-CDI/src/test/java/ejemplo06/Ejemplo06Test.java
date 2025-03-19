@@ -15,6 +15,9 @@ class Ejemplo06Test {
 	
 	@Test
 	void test() {
+		//es muy importe notar, que no está garantizado el orden en que los observadores reciben la
+		//notificación. No puedo programar mi aplicación pensando que los observadores van a recibir 
+		//la notificación en un órden específico.
 		pulicadorEvento.publicarEvento("Algo nuevo ha sucedido");
 	}
 
