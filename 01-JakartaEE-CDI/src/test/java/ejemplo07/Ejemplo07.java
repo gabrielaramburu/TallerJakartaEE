@@ -9,12 +9,12 @@ import ejemplo07.aplicacion.ClienteRepositorio;
 import ejemplo07.aplicacion.ClienteService;
 import ejemplo07.aplicacion.impl.ClienteServiceImpl;
 import ejemplo07.dominio.Cliente;
-import ejemplo07.infraestructura.persistencia.JpaClienteRepositorio;
+import ejemplo07.infraestructura.persistencia.EnMemoriaClienteRepositorio;
 import jakarta.inject.Inject;
 
 @EnableAutoWeld
 @AddPackages(ClienteServiceImpl.class)
-@AddPackages(JpaClienteRepositorio.class)
+@AddPackages(EnMemoriaClienteRepositorio.class)
 class Ejemplo07 {
 
 	//desde la capa superior necesito inyectar los servicios de la capa de Aplicación

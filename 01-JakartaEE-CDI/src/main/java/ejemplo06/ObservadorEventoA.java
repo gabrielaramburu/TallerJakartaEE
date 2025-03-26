@@ -11,7 +11,7 @@ import jakarta.enterprise.event.Observes;
 	//Notar que solo se responderan a eventos de tipo Evento
 	//Notar que no existe acoplamiento entre el publisher y el suscriber
 public class ObservadorEventoA {
-	 public void accept(@Observes Evento evento) {
+	 public void acceptar(@Observes Evento evento) {
 	        System.out.println("Soy A: He recibido un evento: " + evento.getDescripcion());
 	 }
 }

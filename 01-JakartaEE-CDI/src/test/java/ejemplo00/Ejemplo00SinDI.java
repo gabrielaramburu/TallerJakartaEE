@@ -18,7 +18,7 @@ class Ejemplo00SinDI {
 		productos.add(new Producto("Papa",15));
 		productos.add(new Producto("Manzana", 20));
 		
-		Factura factura = new Factura(productos, new TarjetaDebito());
+		Factura factura = new Factura(productos, new TarjetaDeCreadito());
 		assertTrue(factura.pagar());
 		
 

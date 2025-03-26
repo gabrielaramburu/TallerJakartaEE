@@ -9,7 +9,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class JpaClienteRepositorio implements ClienteRepositorio {
+public class EnMemoriaClienteRepositorio implements ClienteRepositorio {
 
 	//en la vida real esto será JPA
 	private List<Cliente> clientes;

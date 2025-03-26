@@ -9,7 +9,7 @@ import jakarta.enterprise.event.Observes;
 public class ObservadorEventoB {
 	
 	
-	 public void accept(@Observes Evento evento) {
+	 public void aceptar(@Observes Evento evento) {
 	        System.out.println("Soy B: He recibido un evento: " + evento.getDescripcion());
 	 }
 }

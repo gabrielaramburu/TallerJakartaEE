@@ -15,6 +15,7 @@ import jakarta.inject.Inject;
 class Ejemplo02_a_Test {
 	
 	@Inject
+	
 	private Factura factura;
 	
 	@DisplayName("DI cuando tengo más de una implementación: uso de Qualifiers")

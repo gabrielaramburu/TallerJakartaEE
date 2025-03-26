@@ -9,7 +9,7 @@ public class Factura {
 	@Inject
 	//La siguiente anotación es un Calificador que le dice al contenedor
 	//Que implementación utilizar
-	@Debito
+	@Credito
 	private MedioDePago medioPago;
 
 
