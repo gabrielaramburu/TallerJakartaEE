@@ -10,6 +10,8 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 /**
  * Implementación solo con fines demostrativos.
+ * Una lista no es la estructura más optima para almacenar objetos y después recuperarlos.
+ * Lo mejor sería utilizar un Map. Si tienes dudas de esto pregunta en clases.
 
  */
 @ApplicationScoped
@@ -42,7 +44,7 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public void actualizarCliente(Cliente cli) {
-		borrarCliente(cli.getId()); //los registros son objetos inmutables
+		borrarCliente(cli.getId()); 
 		clientes.add(cli);
 		
 	}

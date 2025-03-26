@@ -105,8 +105,12 @@
 		<plugins>
 			<!-- Este plugin nos ayuda a automatizar tareas de deploy y
 			aprovisionamiento
-			 Además nos permite lanzar el servidor y con la capacidad de hoydeploy (montorea
-			por cambios en los fuentes)  -->
+			 Además nos permite lanzar el servidor y con la capacidad de hotdeploy (monitorea
+			por cambios en los fuentes)  
+			
+			Desde la consola ejecutar esto:
+			mvn clean package wildfly:dev
+			-->
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
@@ -124,7 +128,7 @@
 						<layer>cloud-server</layer>
 					</layers>
 					<commands>
-			            <!-- para levantar en modo debug -->
+			            <!-- Estos son comando que le tiro al servidor, para levantar en modo debug -->
 			            <command>/subsystem=logging/root-logger=ROOT:write-attribute(name="level", value="DEBUG") </command>
 			            <command>/subsystem=logging/console-handler=CONSOLE:write-attribute(name="level", value="DEBUG")</command>
 			            <command>/subsystem=logging/file-handler=debug:add(level=DEBUG,autoflush=true,file={"relative-to"=>"jboss.server.log.dir", "path"=>"debug.log"})</command>

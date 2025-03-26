@@ -1,6 +1,9 @@
 package ejemplo00;
 
 
+/**
+ * Esta clase es parte del dominio 
+ */
 public class Cliente {
 	private int id;
 	
@@ -18,8 +21,7 @@ public class Cliente {
 		this.id = id;
 	}
 
-	//Los record en Java implementan el método equals utilicando todos los campos
-	//En este caso estamos sobreescribiendo el método para que solo contemple el id
+	//Sobre escribimos el método equals para indicarle a la jvm cuando dos objetos clientes son iguales
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

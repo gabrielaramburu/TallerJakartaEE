@@ -84,6 +84,7 @@ public class ClienteRESTful {
 	/**
 	 * 
 	 * Observar que nada me impide llamar a borrar utilizando GET
+	 * Esto funcionaría pero no compliría con el estilo RESTful
 	 * 
 	 * @param id
 	 */
