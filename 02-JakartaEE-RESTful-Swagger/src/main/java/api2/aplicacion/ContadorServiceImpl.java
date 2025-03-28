@@ -6,8 +6,11 @@ import api2.dominio.Contador;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
 
-//ApplicationScoped
+//@ApplicationScoped
 //@RequestScoped
+/**
+ * Para probar el scope de Session utilizar postman
+ */
 @SessionScoped
 public class ContadorServiceImpl implements ContadorService, Serializable {
 
