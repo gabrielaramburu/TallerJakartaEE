@@ -55,7 +55,7 @@
 				<version>${wildfly-plugin.version}</version>
 				<configuration>
 					<version>${wildfly.version}</version>
-					<server-config>standalone-full.xml</server-config>
+					<server-config>standalone.xml</server-config>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -10,7 +10,9 @@
 			<url-pattern>/mensajes/gerente/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>gerente</role-name> <!--  solo los usuarios con el rol gerente podrán acceder a la url -->
+			<!--  solo los usuarios con el rol gerente podrán acceder 
+			a los recursos /mensajes/gerente/*-->
+			<role-name>gerente</role-name> 
 		</auth-constraint>
 	</security-constraint>
 	
@@ -21,11 +23,13 @@
 			<url-pattern>/mensajes/gerente/enviarMensajeSeguro</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>gerente</role-name> <!--  solo los usuarios con el rol gerente podrán acceder a la url -->
+			<!--  solo los usuarios con el rol gerente podrán acceder 
+			al recurso /mensajes/gerente/enviarMensajeSeguro-->
+			<role-name>gerente</role-name> 
 		</auth-constraint>
 		
-		<!-- la información viaja cifrada ssl utilizando un certificado genreado por el servidor 
-		solo no apto para uso en producción -->
+		<!-- la información viaja cifrada con ssl utilizando un certificado generado por el servidor 
+		No apto para uso en producción -->
 		 <user-data-constraint>
         	<transport-guarantee>CONFIDENTIAL</transport-guarantee>
    		 </user-data-constraint>
@@ -34,8 +38,8 @@
 
 	<login-config>
 		<auth-method>BASIC</auth-method> <!-- se abre un formulario en el browser
-		tener en cuenta de que hay otros tipos de autenticación, por ejemplo se 
-		puede indicaar que se abra un formulario de login específico  -->
+		tener en cuenta que hay otros tipos de autenticación, por ejemplo se 
+		puede indicar que se abra un formulario de login específico  -->
 		<realm-name>ApplicationRealm</realm-name>
 	</login-config>
 

@@ -10,6 +10,10 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
+/**
+ * Esta es una API REST sin control de seguridad. 
+ * Cualquier puede invocar a sus operaciones.
+ */
 @ApplicationScoped
 @Path("/comun")
 public class MensajeComunApi {

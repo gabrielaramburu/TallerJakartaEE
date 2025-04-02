@@ -10,10 +10,21 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
+/**
+ * Esta es una API REST con control de seguridad básico.
+ * Tener en cuenta que la configuración de seguridad se establece 
+ * (al menos en este ejemplo) en el archivo src/main/webapp/WEB-INF/web.xml)
+ * 
+ * Tenga en cuenta que además los rol/usuario y 
+ * sus credendiales tiene que estar configuradas en el servidor (seguir instrucciones del readme)
+ */
 @ApplicationScoped
-@Path("/gerente")
+@Path("/gerente") //observar como la configuración del web.xml hace referencia a este recurso
 public class MensajeGerenteApi {
 
+	/*
+	 * *
+	 */
 	@Inject
 	private MensajeServicios servicio;
 	
@@ -40,11 +51,15 @@ public class MensajeGerenteApi {
 	
 	//openssl s_client -showcerts -connect localhost:8443 </dev/null | sed -n -e '/-.BEGIN/,/-.END/ p' > certificadoPrueba.pem
 	//genera archivo pen con los certificados del servidor
+	
+	//Nota 4: notar que no el curl busca el certificado desde el lugar donde se ejecuta, (no puedo
+	//ejecutar el curl desde cualquier lado)
 	@GET
 	@Path("/enviarMensajeSeguro")
 	//invocar este método
 	@Produces({ MediaType.APPLICATION_JSON })
 	public String enviarMensajeSeguro(@QueryParam("mensaje") String mensaje) {
+		System.out.println("Procesando request del lado del servidor.");
 		return servicio.enviarMensajeComoGerente(mensaje);
 	}
 	

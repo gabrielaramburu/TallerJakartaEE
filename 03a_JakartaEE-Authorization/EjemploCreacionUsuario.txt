@@ -1,0 +1,26 @@
+03a_JakartaEE-Authorization/target/server/bin$ ./add-user.sh
+
+What type of user do you wish to add? 
+ a) Management User (mgmt-users.properties) 
+ b) Application User (application-users.properties)
+(a): b
+
+Enter the details of the new user to add.
+Using realm 'ApplicationRealm' as discovered from the existing property files.
+Username : pepe
+Password recommendations are listed below. To modify these restrictions edit the add-user.properties configuration file.
+ - The password should be different from the username
+ - The password should not be one of the following restricted values {root, admin, administrator}
+ - The password should contain at least 8 characters, 1 alphabetic character(s), 1 digit(s), 1 non-alphanumeric symbol(s)
+Password : 
+WFLYDM0102: Password should have at least 1 non-alphanumeric symbol.
+Are you sure you want to use the password entered yes/no? yes
+Re-enter Password : 
+What groups do you want this user to belong to? (Please enter a comma separated list, or leave blank for none)[  ]: gerente
+About to add user 'pepe' for realm 'ApplicationRealm'
+Is this correct yes/no? yes
+Added user 'pepe' to file '/home/gabriel/workspace/TallerJava/fuentes/03a_JakartaEE-Authorization/target/server/standalone/configuration/application-users.properties'
+Added user 'pepe' to file '/home/gabriel/workspace/TallerJava/fuentes/03a_JakartaEE-Authorization/target/server/domain/configuration/application-users.properties'
+Added user 'pepe' with groups  to file '/home/gabriel/workspace/TallerJava/fuentes/03a_JakartaEE-Authorization/target/server/standalone/configuration/application-roles.properties'
+Added user 'pepe' with groups  to file '/home/gabriel/workspace/TallerJava/fuentes/03a_JakartaEE-Authorization/target/server/domain/configuration/application-roles.properties'
+
