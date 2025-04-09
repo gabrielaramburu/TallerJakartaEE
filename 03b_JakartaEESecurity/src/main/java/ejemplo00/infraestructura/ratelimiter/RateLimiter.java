@@ -20,20 +20,29 @@ public class RateLimiter {
 	public void inicializar() {
 		activo = true;
 		
-		// el balde tiene un capacidad inicial de 10
+		// El balde tiene un capacidad inicial de 10
 		// cada vez que llega un request, se quita un elemento del balde
 		// si el balde se queda vacío los request serán rechazados
-		// el valde se intentará llenear con 60 tocken en un lapso de 1 minutos
-		// intentando distribuir el llenado en intervalos regulares (un
-		// nuevo tocken cada 1 segundo)
 		
-		//esto se traduce en lo siguiente:
-		//en cualquire momento, el servidor podrá procesar un máximo de 10 transacciones concurrentes
-		//trabajando a su máxima capacidad aceptará una nueva 1 transación por segundo
+		
 		Bandwidth bucketConf = Bandwidth.builder()
-				.capacity(10)
-				//.refillGreedy(60, Duration.ofSeconds(15))
-				.refillIntervally(5, Duration.ofSeconds(1))
+				.capacity(10) //capacidad inicial
+				.refillGreedy(5, Duration.ofSeconds(1))
+				// el balde se intentará llenar con 5 tokens en un lapso de 1 segundo
+				// intentando distribuir el llenado de forma regular, es decir:
+				//no va a esperar 1 segundo para cargar los 5 tokens sino que un nuevo
+				//tocken se creara cada cada 200 milisegundos (1/5=0,200)
+				
+				//Esto se traduce en lo siguiente:
+				//trabajando a su máxima capacidad aceptará como máximo 5 TPS 
+				//(ya que la taza de reposición así lo establece)
+				
+				//si quiero procesar 10 TPS refillGreedy(10, Duration.ofSeconds(1))
+				
+				
+				//.refillIntervally(5, Duration.ofSeconds(1))
+				//esta idea es más simple, no intenta llenar el balse de forma regular, 
+				//sino que lo llena de golpe cuando finaliza el período de tiempo
 				.build();
 		
 		bucket=Bucket.builder().addLimit(bucketConf).build();

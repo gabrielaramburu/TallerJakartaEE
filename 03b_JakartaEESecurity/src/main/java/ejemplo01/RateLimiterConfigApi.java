@@ -21,7 +21,7 @@ public class RateLimiterConfigApi {
 	@GET
 	@Path("/activarRateLimiter") 
 	@Produces({ MediaType.APPLICATION_JSON })
-	@RolesAllowed("admin")
+	@RolesAllowed("admin") //solamente los administradores pueden prender/apagar el ratelimiter
 	public void activarRateLimiter(@QueryParam("valor") boolean nuevoEstado) {
 		rateLimiter.activarRateLimiter(nuevoEstado);
 	}
