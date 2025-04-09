@@ -13,6 +13,10 @@ import jakarta.security.enterprise.identitystore.IdentityStore;
 
 @ApplicationScoped
 //@Vetoed
+//Observar que en este proyecto existen dos implmenetaciones de IdentiyStore:
+//ésta y la ValidadorDeCredenciales de memoria. El CDI no va a saber que implementación
+//inyectar, por lo tanto lanzaría un error.
+//Con Vetoed le decimos al CDI que ignore este bean.
 public class ValidadorCredencialesDB implements IdentityStore{
 	@PersistenceContext
 	private EntityManager em;

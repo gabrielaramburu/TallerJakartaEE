@@ -30,7 +30,9 @@ public class MensajeApi  {
 	@GET
 	@Path("/enviarMensaje")
 	@Produces({ MediaType.APPLICATION_JSON })
-	@RolesAllowed("grupo1")
+	@RolesAllowed("grupo1") 
+	//notar como en este enfoque, establecemos el rol autorizado a nivel de código
+	//no en el web.xml
 	public String enviarMensajeTipoA(@QueryParam("valor") String mensaje) {
 		return servicios.enviarMensajeComoGerente(mensaje);
 	}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class UsuarioSistema {
 	private String usr;
-	private String pass; //tendría que ser un hashcode
+	private String pass; //tendría que ser un hashcode (utilizar función hash)
 	private ArrayList<String> grupos;
 	
 	public UsuarioSistema(String usr, String pass, ArrayList<String> grupos) {

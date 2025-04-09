@@ -14,6 +14,7 @@ import jakarta.security.enterprise.identitystore.DatabaseIdentityStoreDefinition
 //las envía para un determinado realm. 
 @DeclareRoles({"grupo1", "grupo2", "admin"})
 //grupos que utilizan las apis
+//observar que esto en el otro ejemplo lo hicimos en el web.xml
 @ApplicationScoped
 public class SeguridadConfiguracion {
 

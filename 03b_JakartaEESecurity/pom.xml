@@ -35,7 +35,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-
+	<!-- notar esta depedencia -->
 		<dependency>
 			<groupId>jakarta.security.enterprise</groupId>
 			<artifactId>jakarta.security.enterprise-api</artifactId>
@@ -84,7 +84,7 @@
 					-->
                     <commands>
 					
-						<!-- Un caso donde le servidor no cumple con la especificación :( 
+						<!-- Un caso donde el servidor no cumple con la especificación :( 
 						y hay que tocar configuración particular para usar Jakarta Security 
 						Es de esperar que esto lo arreglen en futuras versiones del servidor
 						
