@@ -110,6 +110,16 @@
                                 <application-user>false</application-user>
                             </user>
                             
+                            <!-- ejemplo de usuario de la aplicación -->
+                             <user>
+                                <username>pepe</username>
+                                <password>pepe1234</password>
+                 				<groups>
+                                    <group>genrente</group>
+                                </groups>
+                                <application-user>true</application-user>
+                            </user>
+                            
                         </users>
                     </add-user>
                 </configuration>

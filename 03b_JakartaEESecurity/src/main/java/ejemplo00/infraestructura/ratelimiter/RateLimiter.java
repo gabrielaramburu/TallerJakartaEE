@@ -27,7 +27,7 @@ public class RateLimiter {
 		
 		Bandwidth bucketConf = Bandwidth.builder()
 				.capacity(10) //capacidad inicial
-				.refillGreedy(5, Duration.ofSeconds(1))
+				.refillGreedy(7, Duration.ofSeconds(1))
 				// el balde se intentará llenar con 5 tokens en un lapso de 1 segundo
 				// intentando distribuir el llenado de forma regular, es decir:
 				//no va a esperar 1 segundo para cargar los 5 tokens sino que un nuevo
