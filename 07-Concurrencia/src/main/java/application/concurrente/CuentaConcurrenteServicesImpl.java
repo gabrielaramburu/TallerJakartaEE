@@ -1,6 +1,7 @@
 package application.concurrente;
 
 import domain.CuentaConcurrente;
+import infraestructura.aop.DetectarBloqueoOptimista;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.OptimisticLockException;
@@ -16,7 +17,8 @@ public class CuentaConcurrenteServicesImpl implements CuentaConcurrenteServices{
 	
 	@Override
 	@Transactional
-	public void acreditarConcurrente(int idCuenta, int importe) {
+	@DetectarBloqueoOptimista //observar como este método es interceptado
+	public ResultadoAcreditacion acreditarConcurrente(int idCuenta, int importe) {
 		
 			CuentaConcurrente cuenta = cuentaRepo.findById(idCuenta);
 			if (cuenta == null) {
@@ -24,20 +26,29 @@ public class CuentaConcurrenteServicesImpl implements CuentaConcurrenteServices{
 				CuentaConcurrente c = new CuentaConcurrente(idCuenta, importe);
 				
 				cuentaRepo.crearCuenta(c);
-				
+			
 			} else {
 				
 					System.out.println("Acreditando a cuentaC: " + idCuenta + ", importe: " + importe);
 					cuenta.acreditar(importe);
+					hacerPausa();
 					cuentaRepo.actualizar(cuenta);
-	
-				
+					
 			}
-		
-		
-		
+			return ResultadoAcreditacion.ACREDITACION_OK;
 	}
 
+	private void hacerPausa() {
+		//solo para simular que hago cierto trabajo (a modo ilustrativo)
+		//no es una buena práctica mandar a pausar threads en el servidor
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	@Override
 	@Transactional
 	public int consultarSaldo(int idCuenta) {

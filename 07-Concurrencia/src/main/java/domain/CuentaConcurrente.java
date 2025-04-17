@@ -14,10 +14,19 @@ public class CuentaConcurrente {
 	private int idCuenta;
 	private int saldo;
 	
-	@Version //esto hace todo el trabajo
+	@Version //esto se utilza para decirle al frmawork que implemente bloqueo optimista de forma automática
 	private int version;
 	
+	private int versionManual; //eso se utiliza par implementar bloqueo optimista manual
 	
+	public int getVersionManual() {
+		return versionManual;
+	}
+
+	public void setVersionManual(int versionManual) {
+		this.versionManual = versionManual;
+	}
+
 	public CuentaConcurrente() {
 		
 	}
@@ -45,6 +54,14 @@ public class CuentaConcurrente {
 	
 	public void acreditar(int importe) {
 		this.saldo = this.saldo + importe;
+	}
+
+	public int getIdCuenta() {
+		return idCuenta;
+	}
+
+	public void setIdCuenta(int idCuenta) {
+		this.idCuenta = idCuenta;
 	}
 	
 }
