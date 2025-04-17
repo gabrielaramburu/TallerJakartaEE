@@ -24,10 +24,10 @@ public class CuentaConcurrenteRepositoryImpl implements CuentaConcurrenteReposit
         
         //Acá establezco el tipo de bloqueo
         //https://www.baeldung.com/jpa-optimistic-locking
-        findById.setLockMode(LockModeType.OPTIMISTIC);
+        //findById.setLockMode(LockModeType.OPTIMISTIC);
         
         //https://www.baeldung.com/jpa-pessimistic-locking
-        //findById.setLockMode(LockModeType.PESSIMISTIC_WRITE);
+        findById.setLockMode(LockModeType.PESSIMISTIC_WRITE);
         try {
             return findById.getSingleResult();
             
