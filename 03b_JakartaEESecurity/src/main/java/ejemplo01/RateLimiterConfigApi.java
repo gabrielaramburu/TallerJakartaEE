@@ -9,6 +9,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 @Path("/config")
 @DenyAll
@@ -22,7 +23,11 @@ public class RateLimiterConfigApi {
 	@Path("/activarRateLimiter") 
 	@Produces({ MediaType.APPLICATION_JSON })
 	@RolesAllowed("admin") //solamente los administradores pueden prender/apagar el ratelimiter
-	public void activarRateLimiter(@QueryParam("valor") boolean nuevoEstado) {
+	public Response activarRateLimiter(@QueryParam("valor") boolean nuevoEstado) {
 		rateLimiter.activarRateLimiter(nuevoEstado);
+		return Response
+			      .status(Response.Status.OK)
+			      .entity("El estado del RateLimiter se cambió correctamente.")
+			      .build();
 	}
 }

@@ -88,7 +88,7 @@
 						y hay que tocar configuración particular para usar Jakarta Security 
 						Es de esperar que esto lo arreglen en futuras versiones del servidor
 						
-						https://github.com/wildfly/quickstart/blob/main/ee-security/README.adoc 
+						https://github.com/wildfly/quistandalone-full.xmlckstart/blob/main/ee-security/README.adoc 
 						
 						Hay dos formas más de hacer esto: 	
 							ir por lo consola de administración y cambiarlo gráficamente
