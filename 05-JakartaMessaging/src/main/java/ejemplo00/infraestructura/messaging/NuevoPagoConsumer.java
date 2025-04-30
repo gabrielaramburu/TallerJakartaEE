@@ -10,6 +10,10 @@ import jakarta.jms.MessageListener;
 import org.jboss.logging.Logger;
 
 
+/**
+ * Clase encargada de procesar los mensajes que llegan a la queue.
+ * Configuro el comportamiento por medio de anotaciones.
+ */
 @MessageDriven(
     activationConfig = {
     @ActivationConfigProperty(
@@ -48,6 +52,7 @@ public class NuevoPagoConsumer implements MessageListener {
             log.infof("Nuevo pago received: %s, body: %s", message.toString(),
                     body);
 
+            //construyo nuevo objeto que representa un mensaje, a partir del string que recibo en el mensaje
             PagoRealizadoMessage pago = PagoRealizadoMessage.buildFromJson(body);
             pagosServicios.realizarPagoSincro(pago);
 

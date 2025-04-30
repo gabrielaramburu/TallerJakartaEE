@@ -9,6 +9,11 @@ import jakarta.jms.ObjectMessage;
 import jakarta.jms.Queue;
 import org.jboss.logging.Logger;
 
+/**
+ * Esta clase tiene la responsabilidad de enviar mensajes utilizando la queue de prueba.
+ * Voy a utilizar la misma siempre que quiera enviar un mensaje.
+ * De esta manera encapsulo el comportamiento.
+ */
 @ApplicationScoped
 public class EnviarMensajaQueueUtil {
     Logger log = Logger.getLogger(PagosServiciosImpl.class);
@@ -20,6 +25,7 @@ public class EnviarMensajaQueueUtil {
     @Resource (lookup = "java:jboss/exported/jms/queue/servicioPago") //direccion jndi
     //otro tipo de injección de depenencia
     //en este caso injecto un recurso (queue) disponible
+    //el parámetro del lookup es el mismo que utilizo para crear en la queue en el script de configuración
     private Queue queuePagosRealizados ;
 
     public void enviarMensaje(String mensaje) {

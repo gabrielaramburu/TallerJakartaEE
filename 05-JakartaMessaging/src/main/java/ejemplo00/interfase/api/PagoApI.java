@@ -23,14 +23,19 @@ public class PagoApI {
     public void realizarPago(PagoDTO pagoDTO) {
         log.infof("Inicio Pago");
 
-        pagos.realizarPagoAsyncro(pagoDTO);
-        /*PagoRealizadoMessage pagoMessage = new PagoRealizadoMessage(
+        //descomentar para procesamiento asyncrónico
+        //pagos.realizarPagoAsyncro(pagoDTO);
+
+
+
+        PagoRealizadoMessage pagoMessage = new PagoRealizadoMessage(
                 pagoDTO.descripcion(),
                 pagoDTO.monto(),
                 pagoDTO.idCliente()
         );
-        pagos.realizarPagoSincro(pagoMessage);
-        */
+        //descomentar para procesamiento sincrónico
+        //pagos.realizarPagoSincro(pagoMessage);
+
 
         log.infof("Fin Pago");
     }
