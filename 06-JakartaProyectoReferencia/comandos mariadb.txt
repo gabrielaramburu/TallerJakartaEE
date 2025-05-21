@@ -1,0 +1,5 @@
+sudo mariadb -u root -p
+show databases;
+use tallerJava;
+show tables;
+quit
