@@ -34,9 +34,9 @@ public class Traductor {
 		lenguajes.add(new Lenguaje(2, "Ingles"));
 		lenguajes.add(new Lenguaje(3, "Portugues"));
 		
-		//este comportamiento no lo tengo disponible en el Constructor del objeto
-		//es decir en el constructor no tiene sentido (no va a funcionar) preguntar 
-		//si traductorExterno !=null ya que seguramente lo sea.
+		//el constructor utilzado por la JMV se ejecuta antes de que el objeto sea manejado por el contenedor
+		//por lo tanto siempre va a tener sus dependencias en nulo. Solo en esta instancia PostConstruct
+		//puede determinar las dependencias que existe y las que no.
 		if (traductorExterno != null) {
 			//este es otro ejemplo de como mi programa cabia de comportamiento, dependiendo si existe
 			//o no una implementación.

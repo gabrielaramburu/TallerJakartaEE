@@ -29,6 +29,7 @@ public abstract class ServiceDecorator implements ServiciosClientes {
 			System.out.println("Pasando por el decorador");
 			//Invoco al objeto original
 			servicioADecorar.procesarPagoClientes();
+			//el decorador hace cosas despues de invocar
 		} catch (Exception e) {
 			//pero si falla, intento solucionar el problema
 			System.out.println("Se produjo un error al procesar pago, tomando medidas compensatorias");

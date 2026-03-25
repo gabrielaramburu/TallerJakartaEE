@@ -10,6 +10,7 @@ public class Factura {
 	//La siguiente anotación es un Calificador que le dice al contenedor
 	//Que implementación utilizar
 	@Credito
+	//@Debito
 	private MedioDePago medioPago;
 
 

@@ -11,7 +11,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class EnMemoriaClienteRepositorio implements ClienteRepositorio {
 
-	//en la vida real esto será JPA
+	//en la vida real esto será Jakarta Persistence
 	private List<Cliente> clientes;
 	
 	@PostConstruct

@@ -16,8 +16,9 @@ public class PublicadorEvento {
 		//Observar que el Notificador/Publicador no conoce (no está acoplado de ninguna manera)
 		//a los escuchas)
 		Evento e = new Evento(descEvento);
+		System.out.println("Notificando evento: " + descEvento);
 		eventoConcreto.fire(e);
 		
-		System.out.println("Notificando evento: " + descEvento);
+
 	}
 }
