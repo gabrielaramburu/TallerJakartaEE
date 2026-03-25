@@ -31,6 +31,9 @@ public class ClienteServiceImpl implements ClienteService {
 		return clientes;
 	}
 
+	/* observar que las siguientes operaciones funcionan porque está sobreescrito el
+	método equals en la clase Cliente */
+
 	@Override
 	public Cliente obtenerCliente(int id) {
 		int indx = clientes.indexOf(new Cliente(id));

@@ -9,7 +9,6 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
@@ -19,7 +18,7 @@ import jakarta.ws.rs.core.MediaType;
  */
 @ApplicationScoped
 @Path("/clientes")
-public class ClienteRPC {
+public class ApiEstiloRPC {
 
 	@Inject
 	private ClienteServiceImpl clienteService;
@@ -31,9 +30,10 @@ public class ClienteRPC {
 	 */
 	@GET
 	@Path("/obtenerClientes")
-	@Produces({MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_JSON}) //indico que lo que va en el body de la respuesta será un json
 	public List<Cliente> obtenerClientes() {
 		System.out.println("Retornando todos los clientes");
+		//observar como automáticamente los objetos clientes se transforma en una representación estilo JSON
 		return clienteService.obternerClientes();
 	}
 	

@@ -30,7 +30,7 @@ import jakarta.ws.rs.core.MediaType;
 
 @ApplicationScoped
 @Path("/clientes")
-public class ClienteRESTful {
+public class ApiEstiloRESTful {
 	
 	@Inject
 	private ClienteServiceImpl clienteService;
@@ -41,9 +41,11 @@ public class ClienteRESTful {
 	 * @return
 	 */
 	@GET
-	@Produces({MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_JSON}) //establezco que el formato de la info que va en el body del http tendrá
+	//el formato JSON
 	public List<Cliente> obtenerClientes() {
 		System.out.println("Retornando todos los clientes");
+		//observar como no hay programación para pasar los objetos a JSON (lo hace el framework)
 		return clienteService.obternerClientes();
 	}
 	
@@ -56,9 +58,10 @@ public class ClienteRESTful {
 	 * @return
 	 */
 	@GET
-	@Path("/{id}")
+	@Path("/{id}") //recordar que en RESTful todo es un recurso, este caso cliente 2 es un recurso
 	@Produces({MediaType.APPLICATION_JSON})
 	public Cliente obtenerCliente(@PathParam("id") int id) { //observar la anotación @PathParam
+		//el framework me carga este parámetro deacurdo a lo indicado en la url
 		System.out.println("Invocando obtenerCliente con id:" + id);
 		
 		return clienteService.obtenerCliente(id);
@@ -70,6 +73,8 @@ public class ClienteRESTful {
 	 * 
 	 * @param id
 	 */
+
+	//Observar como utilizo la operación http correcta (presetar atención en el ejemplo RPC para ver la diferencia
 	@DELETE
 	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON})
@@ -84,7 +89,7 @@ public class ClienteRESTful {
 	/**
 	 * 
 	 * Observar que nada me impide llamar a borrar utilizando GET
-	 * Esto funcionaría pero no compliría con el estilo RESTful
+	 * Esto funcionaría pero no cumpliría con el estilo RESTful
 	 * 
 	 * @param id
 	 */
