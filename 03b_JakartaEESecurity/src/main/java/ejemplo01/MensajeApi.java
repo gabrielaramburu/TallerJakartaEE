@@ -34,6 +34,7 @@ public class MensajeApi  {
 	//notar como en este enfoque, establecemos el rol autorizado a nivel de código
 	//no en el web.xml
 	public String enviarMensajeTipoA(@QueryParam("valor") String mensaje) {
+		System.out.println("Ejecutnado:enviarMensajeTipoA");
 		return servicios.enviarMensajeComoGerente(mensaje);
 	}
 	
