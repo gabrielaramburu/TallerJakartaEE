@@ -18,7 +18,7 @@ public record PagoRealizadoMessage(
         int idCliente
 ) {
     /**
-     * Al librerías de terceros que facilitan el trabajo con json
+     * Hay librerías que facilitan el trabajo con json
      * pero preferí usar la librería de jakarta para no importar
      * librerías de terceros.
      *

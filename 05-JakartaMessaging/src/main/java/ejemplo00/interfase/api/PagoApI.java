@@ -20,23 +20,33 @@ public class PagoApI {
 
 
     @POST
+    @Path("/sincro")
     public void realizarPago(PagoDTO pagoDTO) {
-        log.infof("Inicio Pago");
-
-        //descomentar para procesamiento asyncrónico
-        //pagos.realizarPagoAsyncro(pagoDTO);
-
-
+        log.infof("Inicio Pago sincrónico");
 
         PagoRealizadoMessage pagoMessage = new PagoRealizadoMessage(
                 pagoDTO.descripcion(),
                 pagoDTO.monto(),
                 pagoDTO.idCliente()
         );
-        //descomentar para procesamiento sincrónico
-        //pagos.realizarPagoSincro(pagoMessage);
+        pagos.realizarPagoSincro(pagoMessage);
 
+        log.infof("Fin Pago sincrónico");
+    }
 
-        log.infof("Fin Pago");
+    @POST
+    @Path("/asincro")
+    public void realizarPagoAsincronico(PagoDTO pagoDTO) {
+        log.infof("Inicio Pago asincrónico");
+
+        pagos.realizarPagoAsyncro(pagoDTO);
+
+        PagoRealizadoMessage pagoMessage = new PagoRealizadoMessage(
+                pagoDTO.descripcion(),
+                pagoDTO.monto(),
+                pagoDTO.idCliente()
+        );
+
+        log.infof("Fin Pago asincrónico");
     }
 }

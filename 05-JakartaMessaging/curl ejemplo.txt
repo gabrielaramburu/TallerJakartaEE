@@ -1,1 +1,5 @@
-curl -X PUT http://localhost:8080/04-JakartaEE-Messaging/api/pagos -H "Content-Type: application/json" -d '{"descripcion":"pago de prueba ","monto":100.0,"idCliente":"12345"}'
+//request para lanzar pago sincrónico
+curl -X POST http://localhost:8080/04-JakartaEE-Messaging/api/pagos/sincro -H "Content-Type: application/json" -d '{"descripcion":"pago de prueba ","monto":100.0,"idCliente":"12345"}'
+
+//request para lanzar paga asincrónico
+curl -X POST http://localhost:8080/04-JakartaEE-Messaging/api/pagos/asincro -H "Content-Type: application/json" -d '{"descripcion":"pago de prueba ","monto":100.0,"idCliente":"12345"}'
